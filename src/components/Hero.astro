@@ -1,6 +1,4 @@
 ---
-import Counter from "./Counter.astro";
-
 export interface Props {
   title?: string;
   subtitle?: string;
@@ -9,14 +7,12 @@ export let title: string = "";
 export let subtitle: string = "";
 ---
 
-<section class="bg-gradient-to-br from-indigo-50 to-white py-16">
+<section class="bg-slate-500">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h1 class="text-3xl sm:text-4xl font-extrabold mb-4">{title}</h1>
     <p class="text-slate-600 max-w-2xl mx-auto">{subtitle}</p>
     <div class="mt-8">
       <slot name="cta" />
     </div>
-    <!-- exemple usage: -->
-    <Counter slot="counter" />
   </div>
 </section>

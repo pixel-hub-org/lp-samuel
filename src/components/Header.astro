@@ -2,13 +2,98 @@
 // Simple header for LPs
 ---
 
-<header class="bg-white border-b">
+<header class="bg-slate-700/90 border-b border-white/10 backdrop-blur">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="font-semibold text-lg">Pixel Teams</a>
-    <nav>
-      <a class="text-sm text-slate-600 hover:text-slate-900" href="#features"
-        >Features</a
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a class="text-sm text-slate-300 hover:text-white" href="#como-atuo"
+        >Como atuo?</a
       >
+      <a
+        class="text-sm text-slate-300 hover:text-white"
+        href="#sobre-a-mentoria">Sobre a mentoria</a
+      >
+      <a class="text-sm text-slate-300 hover:text-white" href="#resultados"
+        >Resultados</a
+      >
+      <a class="text-sm text-slate-300 hover:text-white" href="#sobre-mim"
+        >Sobre mim</a
+      >
+      <a class="text-sm text-slate-300 hover:text-white" href="#faq">FAQ</a>
+    </nav>
+
+    <!-- CTA Desktop (restore UX classes) -->
+    <button
+      class="hidden md:flex items-center justify-center px-6 py-[7px] rounded-lg
+      bg-radial-[at_50%_75%] from-[#1169DB] from-92% border-t border-t-[#1169DB]/90 text-white"
+    >
+      Entrar em contato
+    </button>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menuBtn"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 text-white hover:bg-white/5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          d="M4 6h16M4 12h16M4 18h16"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </button>
+    <!-- Mobile: hamburger + CTA -->
+  </div>
+
+  <!-- Mobile panel -->
+  <div id="mobileMenu" class="md:hidden max-w-6xl mx-auto px-6 pb-4 hidden">
+    <nav class="flex flex-col gap-3">
+      <a
+        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
+        href="#como-atuo">Como atuo?</a
+      >
+      <a
+        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
+        href="#sobre-a-mentoria">Sobre a mentoria</a
+      >
+      <a
+        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
+        href="#resultados">Resultados</a
+      >
+      <a
+        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
+        href="#sobre-mim">Sobre mim</a
+      >
+      <a
+        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
+        href="#faq">FAQ</a
+      >
+      <button
+        class="flex items-center justify-center px-6 py-[7px] rounded-lg
+      bg-radial-[at_50%_75%] from-[#1169DB] from-92% border-t border-t-[#1169DB]/90 text-white"
+      >
+        Entrar em contato
+      </button>
     </nav>
   </div>
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const panel = document.getElementById("mobileMenu");
+    if (btn && panel) {
+      btn.addEventListener("click", () => {
+        const nowHidden = panel.classList.toggle("hidden");
+        btn.setAttribute("aria-expanded", (!nowHidden).toString());
+      });
+    }
+  </script>
 </header>

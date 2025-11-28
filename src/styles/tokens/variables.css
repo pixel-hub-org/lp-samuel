@@ -1,8 +1,6 @@
 /* Design tokens CSS — use as base e estenda conforme necessário */
 :root {
-  --brand-500: #6366f1; /* indigo-500 */
-  --brand-600: #4f46e5;
-  --bg: #ffffff;
-  --text: #0f172a;
-  --radius-md: 0.5rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
