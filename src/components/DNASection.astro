@@ -2,43 +2,72 @@
 // src/components/DNASection.astro
 ---
 
-<section class="w-full py-20">
+<section id="como-atuo" class="w-full py-20">
   <div class="max-w-7xl mx-auto px-6 lg:px-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
       <!-- Left Column -->
       <div class="flex flex-col justify-between gap-8">
         <!-- Header -->
         <div class="flex flex-col gap-4">
-          <div class="inline-flex self-start px-4 py-2 rounded-full border border-white/12 bg-gradient-to-r from-white/4 to-transparent">
+          <div
+            class="inline-flex self-start px-4 py-2 rounded-full border border-white/12 bg-gradient-to-r from-white/4 to-transparent"
+          >
             <span class="text-white text-xs font-medium leading-[1.25]">
               🚀 IA Aplicada ao Valor
             </span>
           </div>
-          
-          <h2 class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+
+          <h2
+            class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]"
+          >
             O DNA da Mentoria
           </h2>
-          
+
           <p class="text-sm text-white/80 leading-[1.5]">
-            Minha missão é clara: conectar estratégia, pessoas e tecnologia para impulsionar a transformação digital e formar times de alta performance.
+            Minha missão é clara: conectar estratégia, pessoas e tecnologia para
+            impulsionar a transformação digital e formar times de alta
+            performance.
           </p>
         </div>
 
         <!-- Testimonial Card -->
-        <div class="flex flex-col gap-4 p-4 rounded-lg border border-white bg-white/2">
+        <div
+          class="flex flex-col gap-4 p-4 rounded-lg border border-white bg-white/2"
+        >
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
               <div class="flex -space-x-3">
-                <div class="w-6 h-6 rounded-full border border-white/12 bg-gray-500"></div>
-                <div class="w-6 h-6 rounded-full border border-white/12 bg-gray-600"></div>
-                <div class="w-6 h-6 rounded-full border border-white/12 bg-gray-400"></div>
+                <div
+                  class="w-6 h-6 rounded-full border border-white/12 bg-gray-500"
+                >
+                </div>
+                <div
+                  class="w-6 h-6 rounded-full border border-white/12 bg-gray-600"
+                >
+                </div>
+                <div
+                  class="w-6 h-6 rounded-full border border-white/12 bg-gray-400"
+                >
+                </div>
               </div>
-              <span class="text-sm font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+              <span
+                class="text-sm font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]"
+              >
                 +20 depoimentos no Instagram
               </span>
             </div>
-            <svg class="w-5 h-5 text-[#F2F2F2]" fill="none" stroke="currentColor" viewBox="0 0 20 20">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            <svg
+              class="w-5 h-5 text-[#F2F2F2]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              ></path>
             </svg>
           </div>
         </div>
@@ -47,70 +76,120 @@
       <!-- Right Column - Features -->
       <div class="flex flex-col gap-0">
         <!-- Feature 1 -->
-        <div class="flex flex-col gap-2 p-6 rounded-r-lg bg-gradient-to-r from-white/4 to-transparent border-l-4 border-[#4489E3]">
+        <div
+          class="flex flex-col gap-2 p-6 rounded-r-lg bg-gradient-to-r from-white/4 to-transparent border-l-4 border-[#4489E3]"
+        >
           <div class="flex items-center gap-4">
-            <div class="flex items-center justify-center w-8 h-8 rounded-lg border border-white/12 bg-[#4489E3]">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M10.3346 13.3365C9.89549 14.3894 9.05295 15.232 8.00002 15.6711C6.94709 15.232 6.10455 14.3894 5.66546 13.3365H7.17169C7.38922 13.6623 7.67009 13.9447 8.00002 14.1653C8.32995 13.9447 8.61082 13.6623 8.82835 13.3365H10.3346ZM12 9.873L13.3334 11.3851V12.6699H2.66669V11.3851L4.00002 9.873V6.00319C4.00002 3.68102 5.66963 1.70548 8.00002 0.973328C10.3304 1.70548 12 3.68102 12 6.00319V9.873ZM11.5128 11.3365L10.6667 10.3769V6.00319C10.6667 4.45796 9.61949 3.04954 8.00002 2.38923C6.38054 3.04954 5.33335 4.45796 5.33335 6.00319V10.3769L4.48719 11.3365H11.5128ZM8.00002 7.33653C7.26362 7.33653 6.66669 6.73953 6.66669 6.00319C6.66669 5.26681 7.26362 4.66985 8.00002 4.66985C8.73642 4.66985 9.33335 5.26681 9.33335 6.00319C9.33335 6.73953 8.73642 7.33653 8.00002 7.33653Z"/>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-lg border border-white/12 bg-[#4489E3]"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M10.3346 13.3365C9.89549 14.3894 9.05295 15.232 8.00002 15.6711C6.94709 15.232 6.10455 14.3894 5.66546 13.3365H7.17169C7.38922 13.6623 7.67009 13.9447 8.00002 14.1653C8.32995 13.9447 8.61082 13.6623 8.82835 13.3365H10.3346ZM12 9.873L13.3334 11.3851V12.6699H2.66669V11.3851L4.00002 9.873V6.00319C4.00002 3.68102 5.66963 1.70548 8.00002 0.973328C10.3304 1.70548 12 3.68102 12 6.00319V9.873ZM11.5128 11.3365L10.6667 10.3769V6.00319C10.6667 4.45796 9.61949 3.04954 8.00002 2.38923C6.38054 3.04954 5.33335 4.45796 5.33335 6.00319V10.3769L4.48719 11.3365H11.5128ZM8.00002 7.33653C7.26362 7.33653 6.66669 6.73953 6.66669 6.00319C6.66669 5.26681 7.26362 4.66985 8.00002 4.66985C8.73642 4.66985 9.33335 5.26681 9.33335 6.00319C9.33335 6.73953 8.73642 7.33653 8.00002 7.33653Z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+            <h3
+              class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]"
+            >
               Do Zero à Otimização
             </h3>
           </div>
           <p class="text-sm text-white/80 leading-[1.5]">
-            Foco na aplicação prática e estratégica da IA para otimizar processos, gerar eficiência e acelerar a Transformação Digital da sua área ou empresa.
+            Foco na aplicação prática e estratégica da IA para otimizar
+            processos, gerar eficiência e acelerar a Transformação Digital da
+            sua área ou empresa.
           </p>
         </div>
 
         <!-- Feature 2 -->
         <div class="flex flex-col gap-2 p-6 rounded-r-lg">
           <div class="flex items-center gap-4">
-            <div class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 3.33337H11.6095L14.4714 6.1953C14.7317 6.45565 14.7317 6.87777 14.4714 7.13811L11.6095 10H8V14.6667H6.66667V10H2.66667C2.29848 10 2 9.70157 2 9.33337V4.00004C2 3.63185 2.29848 3.33337 2.66667 3.33337H6.66667V1.33337H8V3.33337ZM11.0572 8.66671L13.0572 6.66671L11.0572 4.66671H3.33333V8.66671H11.0572Z"/>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 3.33337H11.6095L14.4714 6.1953C14.7317 6.45565 14.7317 6.87777 14.4714 7.13811L11.6095 10H8V14.6667H6.66667V10H2.66667C2.29848 10 2 9.70157 2 9.33337V4.00004C2 3.63185 2.29848 3.33337 2.66667 3.33337H6.66667V1.33337H8V3.33337ZM11.0572 8.66671L13.0572 6.66671L11.0572 4.66671H3.33333V8.66671H11.0572Z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+            <h3
+              class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]"
+            >
               Entrega de Valor Contínuo
             </h3>
           </div>
           <p class="text-sm text-white/80 leading-[1.5]">
-            Metodologias ágeis e práticas de Gestão de Produtos para garantir que a IA não seja apenas um custo, mas sim uma fonte constante de entregas de valor mensurável.
+            Metodologias ágeis e práticas de Gestão de Produtos para garantir
+            que a IA não seja apenas um custo, mas sim uma fonte constante de
+            entregas de valor mensurável.
           </p>
         </div>
 
         <!-- Feature 3 -->
         <div class="flex flex-col gap-2 p-6 rounded-r-lg">
           <div class="flex items-center gap-4">
-            <div class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M6.36665 7.66671C5.53822 7.66671 4.86665 6.99511 4.86665 6.16671C4.86665 5.33828 5.53822 4.66671 6.36665 4.66671C7.19505 4.66671 7.86665 5.33828 7.86665 6.16671C7.86665 6.99511 7.19505 7.66671 6.36665 7.66671ZM6.66665 13.1654V10.9334C6.66665 10.6078 6.76278 10.3085 6.93605 10.0416C6.73911 10.0142 6.53785 10 6.33331 10C5.28799 10 4.32911 10.3702 3.58059 10.9865C4.29937 12.0481 5.3906 12.8369 6.66665 13.1654ZM2.96855 9.77337C3.90953 9.07791 5.0734 8.66671 6.33331 8.66671C7.02898 8.66671 7.69538 8.79204 8.31111 9.02144C8.89645 8.79257 9.59491 8.66671 10.3333 8.66671C11.4398 8.66671 12.4566 8.94931 13.1373 9.43757C13.265 8.98024 13.3333 8.49811 13.3333 8.00004C13.3333 5.05452 10.9455 2.66671 7.99998 2.66671C5.05446 2.66671 2.66665 5.05452 2.66665 8.00004C2.66665 8.62171 2.77302 9.21857 2.96855 9.77337ZM12.5862 10.724C12.3241 10.3684 11.4472 10 10.3333 10C8.99591 10 7.99998 10.5312 7.99998 10.9334V13.3334C9.95031 13.3334 11.6562 12.2864 12.5862 10.724ZM7.99998 14.6667C4.31808 14.6667 1.33331 11.6819 1.33331 8.00004C1.33331 4.31814 4.31808 1.33337 7.99998 1.33337C11.6818 1.33337 14.6666 4.31814 14.6666 8.00004C14.6666 11.6819 11.6818 14.6667 7.99998 14.6667ZM10.3333 8.33337C9.59691 8.33337 8.99998 7.73644 8.99998 7.00004C8.99998 6.26366 9.59691 5.66671 10.3333 5.66671C11.0697 5.66671 11.6666 6.26366 11.6666 7.00004C11.6666 7.73644 11.0697 8.33337 10.3333 8.33337Z"/>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.36665 7.66671C5.53822 7.66671 4.86665 6.99511 4.86665 6.16671C4.86665 5.33828 5.53822 4.66671 6.36665 4.66671C7.19505 4.66671 7.86665 5.33828 7.86665 6.16671C7.86665 6.99511 7.19505 7.66671 6.36665 7.66671ZM6.66665 13.1654V10.9334C6.66665 10.6078 6.76278 10.3085 6.93605 10.0416C6.73911 10.0142 6.53785 10 6.33331 10C5.28799 10 4.32911 10.3702 3.58059 10.9865C4.29937 12.0481 5.3906 12.8369 6.66665 13.1654ZM2.96855 9.77337C3.90953 9.07791 5.0734 8.66671 6.33331 8.66671C7.02898 8.66671 7.69538 8.79204 8.31111 9.02144C8.89645 8.79257 9.59491 8.66671 10.3333 8.66671C11.4398 8.66671 12.4566 8.94931 13.1373 9.43757C13.265 8.98024 13.3333 8.49811 13.3333 8.00004C13.3333 5.05452 10.9455 2.66671 7.99998 2.66671C5.05446 2.66671 2.66665 5.05452 2.66665 8.00004C2.66665 8.62171 2.77302 9.21857 2.96855 9.77337ZM12.5862 10.724C12.3241 10.3684 11.4472 10 10.3333 10C8.99591 10 7.99998 10.5312 7.99998 10.9334V13.3334C9.95031 13.3334 11.6562 12.2864 12.5862 10.724ZM7.99998 14.6667C4.31808 14.6667 1.33331 11.6819 1.33331 8.00004C1.33331 4.31814 4.31808 1.33337 7.99998 1.33337C11.6818 1.33337 14.6666 4.31814 14.6666 8.00004C14.6666 11.6819 11.6818 14.6667 7.99998 14.6667ZM10.3333 8.33337C9.59691 8.33337 8.99998 7.73644 8.99998 7.00004C8.99998 6.26366 9.59691 5.66671 10.3333 5.66671C11.0697 5.66671 11.6666 6.26366 11.6666 7.00004C11.6666 7.73644 11.0697 8.33337 10.3333 8.33337Z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+            <h3
+              class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
+            >
               Conexão Estratégica
             </h3>
           </div>
-          <p class="text-sm text-white/80 leading-[1.5]">
-            A sua missão de conectar estratégia, pessoas e tecnologia. Aprenda a liderar equipes multidisciplinares e a desenvolver a mentalidade adaptativa.
+          <p class="text-sm text-white/80 leading-normal">
+            A sua missão de conectar estratégia, pessoas e tecnologia. Aprenda a
+            liderar equipes multidisciplinares e a desenvolver a mentalidade
+            adaptativa.
           </p>
         </div>
 
         <!-- Feature 4 -->
         <div class="flex flex-col gap-2 p-6 rounded-r-lg">
           <div class="flex items-center gap-4">
-            <div class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M4.15671 4.30223C3.23399 5.26103 2.66665 6.56428 2.66665 8.00004C2.66665 10.9456 5.05446 13.3334 7.99998 13.3334C8.72051 13.3334 9.40771 13.1905 10.0347 12.9315C10.1114 12.4312 9.94318 11.9511 9.87438 11.7831C9.72131 11.41 9.21605 10.7722 8.37258 9.88724C8.14745 9.65057 8.16191 9.46904 8.24238 8.92957L8.25165 8.86864C8.30631 8.49911 8.39805 8.28064 9.64145 8.08324C10.2731 7.98311 10.4392 8.23557 10.6695 8.58517C10.695 8.62391 10.7204 8.66191 10.7465 8.69997C10.9652 9.01984 11.1273 9.09297 11.3721 9.20431C11.4818 9.25404 11.6186 9.31677 11.802 9.42097C12.2367 9.66937 12.2367 9.94984 12.2367 10.5648V10.6346C12.2367 10.8956 12.2112 11.1248 12.171 11.324C12.8985 10.4124 13.3333 9.25697 13.3333 8.00004C13.3333 5.80063 12.002 3.91217 10.1012 3.09659C9.73245 3.34546 9.22651 3.69821 9.04998 3.94004C8.95971 4.06363 8.83211 4.69448 8.41711 4.74655C8.30838 4.76019 8.16251 4.75063 8.00798 4.74069C7.59365 4.71376 7.02678 4.67741 6.84531 5.17001C6.73011 5.48217 6.70985 6.32967 7.08258 6.76957C7.14225 6.83984 7.15378 6.96984 7.11325 7.11571C7.05998 7.30724 6.95238 7.42377 6.91885 7.44784C6.85458 7.41091 6.72638 7.26211 6.63957 7.16084C6.43034 6.91771 6.16935 6.61493 5.83196 6.52121C5.70928 6.48726 5.57442 6.45915 5.44363 6.43161C5.07758 6.35489 4.66293 6.2676 4.56659 6.06205C4.49626 5.91151 4.49657 5.70418 4.49684 5.48513C4.49684 5.20751 4.49684 4.89357 4.36084 4.58841C4.30829 4.47031 4.23791 4.37635 4.15671 4.30223ZM7.99998 14.6667C4.31808 14.6667 1.33331 11.6819 1.33331 8.00004C1.33331 4.31814 4.31808 1.33337 7.99998 1.33337C11.6818 1.33337 14.6666 4.31814 14.6666 8.00004C14.6666 11.6819 11.6818 14.6667 7.99998 14.6667Z"/>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4.15671 4.30223C3.23399 5.26103 2.66665 6.56428 2.66665 8.00004C2.66665 10.9456 5.05446 13.3334 7.99998 13.3334C8.72051 13.3334 9.40771 13.1905 10.0347 12.9315C10.1114 12.4312 9.94318 11.9511 9.87438 11.7831C9.72131 11.41 9.21605 10.7722 8.37258 9.88724C8.14745 9.65057 8.16191 9.46904 8.24238 8.92957L8.25165 8.86864C8.30631 8.49911 8.39805 8.28064 9.64145 8.08324C10.2731 7.98311 10.4392 8.23557 10.6695 8.58517C10.695 8.62391 10.7204 8.66191 10.7465 8.69997C10.9652 9.01984 11.1273 9.09297 11.3721 9.20431C11.4818 9.25404 11.6186 9.31677 11.802 9.42097C12.2367 9.66937 12.2367 9.94984 12.2367 10.5648V10.6346C12.2367 10.8956 12.2112 11.1248 12.171 11.324C12.8985 10.4124 13.3333 9.25697 13.3333 8.00004C13.3333 5.80063 12.002 3.91217 10.1012 3.09659C9.73245 3.34546 9.22651 3.69821 9.04998 3.94004C8.95971 4.06363 8.83211 4.69448 8.41711 4.74655C8.30838 4.76019 8.16251 4.75063 8.00798 4.74069C7.59365 4.71376 7.02678 4.67741 6.84531 5.17001C6.73011 5.48217 6.70985 6.32967 7.08258 6.76957C7.14225 6.83984 7.15378 6.96984 7.11325 7.11571C7.05998 7.30724 6.95238 7.42377 6.91885 7.44784C6.85458 7.41091 6.72638 7.26211 6.63957 7.16084C6.43034 6.91771 6.16935 6.61493 5.83196 6.52121C5.70928 6.48726 5.57442 6.45915 5.44363 6.43161C5.07758 6.35489 4.66293 6.2676 4.56659 6.06205C4.49626 5.91151 4.49657 5.70418 4.49684 5.48513C4.49684 5.20751 4.49684 4.89357 4.36084 4.58841C4.30829 4.47031 4.23791 4.37635 4.15671 4.30223ZM7.99998 14.6667C4.31808 14.6667 1.33331 11.6819 1.33331 8.00004C1.33331 4.31814 4.31808 1.33337 7.99998 1.33337C11.6818 1.33337 14.6666 4.31814 14.6666 8.00004C14.6666 11.6819 11.6818 14.6667 7.99998 14.6667Z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+            <h3
+              class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
+            >
               Experiência em Projetos Globais
             </h3>
           </div>
-          <p class="text-sm text-white/80 leading-[1.5]">
-            Lições de projetos internacionais DELL/HP para escalar suas iniciativas de IA e tecnologia, aplicando um olhar que equilibra visão técnica e resultado de negócio.
+          <p class="text-sm text-white/80 leading-normal">
+            Lições de projetos internacionais DELL/HP para escalar suas
+            iniciativas de IA e tecnologia, aplicando um olhar que equilibra
+            visão técnica e resultado de negócio.
           </p>
         </div>
       </div>

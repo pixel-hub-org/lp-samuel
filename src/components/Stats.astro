@@ -6,34 +6,77 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-24">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
       <!-- Stat 1 -->
-      <div class="flex flex-col items-start gap-2 p-6 border-b md:border-b-0 md:border-r border-white/8">
-        <h3 class="text-4xl font-bold text-white font-[family-name:var(--font-outfit)] leading-[1.5]">
-          +15
+      <div
+        class="flex flex-col items-start gap-2 p-6 border-b md:border-b-0 md:border-r border-white/8"
+      >
+        <h3
+          class="text-4xl font-bold text-white font-outfit leading-normal"
+          data-count="15"
+        >
+          +<span>0</span>
         </h3>
-        <p class="text-sm text-white/80 leading-[1.5]">
+        <p class="text-sm text-white/80 leading-normal">
           Anos de experiência em projetos incríveis de tecnologia
         </p>
       </div>
 
       <!-- Stat 2 -->
-      <div class="flex flex-col items-start gap-2 p-6 border-b md:border-b-0 md:border-r border-white/8">
-        <h3 class="text-4xl font-bold text-white font-[family-name:var(--font-outfit)] leading-[1.5]">
-          +14
+      <div
+        class="flex flex-col items-start gap-2 p-6 border-b md:border-b-0 md:border-r border-white/8"
+      >
+        <h3
+          class="text-4xl font-bold text-white font-outfit leading-normal"
+          data-count="14"
+        >
+          +<span>0</span>
         </h3>
-        <p class="text-sm text-white/80 leading-[1.5]">
+        <p class="text-sm text-white/80 leading-normal">
           Certificados de experiência em projetos de tecnologia
         </p>
       </div>
 
       <!-- Stat 3 -->
       <div class="flex flex-col items-start gap-2 p-6">
-        <h3 class="text-4xl font-bold text-white font-[family-name:var(--font-outfit)] leading-[1.5]">
-          +37
+        <h3
+          class="text-4xl font-bold text-white font-outfit leading-normal"
+          data-count="37"
+        >
+          +<span>0</span>
         </h3>
-        <p class="text-sm text-white/80 leading-[1.5]">
+        <p class="text-sm text-white/80 leading-normal">
           Softwares entregues em escala nacional e global.
         </p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const counters = document.querySelectorAll("h3[data-count] > span");
+  const animate = (el: HTMLElement, target: number) => {
+    const duration = 2500; // ms
+    const start = performance.now();
+    const step = (ts: number) => {
+      const p = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const value = Math.floor(eased * target);
+      el.textContent = value.toString();
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const h3 = entry.target.closest("h3");
+          const target = Number(h3?.getAttribute("data-count")) || 0;
+          animate(entry.target as HTMLElement, target);
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  counters.forEach((span) => io.observe(span));
+</script>

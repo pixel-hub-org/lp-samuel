@@ -63,7 +63,7 @@
         </div>
 
         <!-- Back to top -->
-        <button class="flex items-center justify-center h-8 px-4 gap-2 rounded-full border border-white/12 bg-white/4 hover:bg-white/8 transition-colors">
+        <button id="back-to-top" class="flex items-center justify-center h-8 px-4 gap-2 rounded-full border border-white/12 bg-white/4 hover:bg-white/8 transition-colors">
           <span class="text-[13px] text-white/70 font-medium leading-[1.5]">
             Voltar ao topo
           </span>
@@ -71,6 +71,16 @@
             <path d="M8.66663 7.99984V13.3332H7.33329V7.99984H2.66663L7.99996 2.6665L13.3333 7.99984H8.66663Z"/>
           </svg>
         </button>
+
+        <script>
+          const backToTopButton = document.getElementById('back-to-top');
+          backToTopButton?.addEventListener('click', () => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        </script>
       </div>
     </div>
   </div>

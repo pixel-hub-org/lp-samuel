@@ -1,12 +1,21 @@
 ---
-// src/components/AboutSection.astro
+import image4 from "../assets/image 4.png";
+import image5 from "../assets/image 5.png";
+import image6 from "../assets/image 6.png";
+import image7 from "../assets/image 7.png";
+import image8 from "../assets/image 8.png";
+import image9 from "../assets/image 9.png";
+import image10 from "../assets/image 10.png";
+import image11 from "../assets/image 11.png";
+
+const carouselImages = [image4, image5, image6, image7, image8, image9, image10, image11];
 ---
 
-<section class="w-full py-12">
-  <div class="max-w-[1000px] mx-auto px-6 lg:px-20">
-    <div class="flex flex-col items-center gap-12 p-6 lg:p-20 lg:pb-10 rounded-2xl border border-white/12 bg-[#0A0A0A]">
+<section id="sobre-mim" class="w-full py-12">
+  <div class="max-w-[1000px] mx-auto px-6 lg:px-0">
+    <div class="flex flex-col items-center gap-8 lg:gap-12 p-6 lg:px-20 lg:pt-20 lg:pb-10 rounded-2xl border border-white/12 bg-[#0A0A0A]">
       <!-- Decorative background -->
-      <div class="w-full h-full max-w-[1000px] rounded-2xl overflow-hidden">
+      <div class="w-full h-full max-w-[1000px] rounded-2xl overflow-hidden -mx-6 lg:-mx-20 -mt-6 lg:-mt-20">
         <img 
           src="https://api.builder.io/api/v1/image/assets/TEMP/2a819c25dc5d38d3f7ae2734f57b5f02ba3e2c12?width=2000" 
           alt="Background decoration"
@@ -16,7 +25,7 @@
 
       <!-- Header -->
       <div class="flex flex-col items-center text-center gap-3">
-        <h2 class="text-4xl lg:text-5xl font-semibold text-white font-[family-name:var(--font-outfit)] leading-[1.25] max-w-[528px]">
+        <h2 class="text-4xl lg:text-[40px] font-semibold text-white font-[family-name:var(--font-outfit)] leading-[1.25] max-w-[528px]">
           Quem sou eu?
         </h2>
         <p class="text-sm text-white/80 font-medium leading-[1.5] max-w-[340px]">
@@ -59,21 +68,46 @@
       <!-- Certifications Carousel -->
       <div class="relative w-full h-[116px] overflow-hidden">
         <!-- Gradient overlays -->
-        <div class="absolute left-0 top-0 w-[110px] h-full bg-gradient-to-r from-[#0A0A0A] to-transparent z-10"></div>
-        <div class="absolute right-0 top-0 w-[110px] h-full bg-gradient-to-l from-[#0A0A0A] to-transparent z-10"></div>
-        
-        <!-- Certifications -->
-        <div class="flex items-center justify-center gap-[70px] h-full px-[110px]">
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/ad33659c33381eac40061641b81f19d65a13ad9f?width=141" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/1032900d18c71a32b2d48d1f74f503cea1c4f289?width=220" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/83927529235e59ece1d2bd651b36c7790c8bac38?width=138" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/cb4a33b37b6ae0d4dd4746220df38f3615503009?width=138" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/7abd953b1c6a8c7e5e17e74d762f90daa3a5a951?width=138" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/eb4a16a46190c0d93269656cbf03eeb066d7bc98?width=138" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/0daf0dcbbd42acb4ad466436acff02b309fbdbef?width=138" alt="Certificação" class="h-full w-auto object-contain" />
-          <img src="https://api.builder.io/api/v1/image/assets/TEMP/aec9809478f8a7667904410324ba8c9669467f7c?width=143" alt="Certificação" class="h-full w-auto object-contain" />
+        <div class="absolute left-0 top-0 w-[110px] h-full bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 w-[110px] h-full bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none"></div>
+
+        <!-- Certifications - Infinite Scroll -->
+        <div class="certifications-track flex items-center gap-8 h-full">
+          <!-- First set -->
+          {carouselImages.map((img) => (
+            <img src={img.src} alt="Imagem do carrossel" class="h-full w-auto object-contain flex-shrink-0 cert-img" />
+          ))}
+
+          <!-- Duplicate set for infinite loop -->
+          {carouselImages.map((img) => (
+            <img src={img.src} alt="Imagem do carrossel" class="h-full w-auto object-contain flex-shrink-0 cert-img" />
+          ))}
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .certifications-track {
+    animation: scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .certifications-track:hover {
+    animation-play-state: paused;
+  }
+
+  .cert-img {
+    mix-blend-mode: multiply;
+  }
+</style>
