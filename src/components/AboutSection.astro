@@ -1,12 +1,13 @@
 ---
-import image10 from "../assets/image 10.png";
-import image11 from "../assets/image 11.png";
-import image4 from "../assets/image 4.png";
-import image5 from "../assets/image 5.png";
-import image6 from "../assets/image 6.png";
-import image7 from "../assets/image 7.png";
-import image8 from "../assets/image 8.png";
-import image9 from "../assets/image 9.png";
+import { Image } from "astro:assets";
+import image10 from "../assets/certificacao01.png";
+import image11 from "../assets/certificacao02.png";
+import image4 from "../assets/certificacao03.png";
+import image5 from "../assets/certificacao04.png";
+import image6 from "../assets/certificacao05.png";
+import image7 from "../assets/certificacao06.png";
+import image8 from "../assets/certificacao07.png";
+import image9 from "../assets/certificacao08.png";
 
 const carouselImages = [
   image4,
@@ -93,7 +94,7 @@ const carouselImages = [
       </div>
 
       <!-- Certifications Carousel -->
-      <div class="relative w-full h-[116px] overflow-hidden">
+      <div class="relative w-full h-[80px] overflow-hidden">
         <!-- Gradient overlays -->
         <div
           class="absolute left-0 top-0 w-[110px] h-full bg-linear-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none"
@@ -109,9 +110,11 @@ const carouselImages = [
           <!-- First set -->
           {
             carouselImages.map((img) => (
-              <img
-                src={img.src}
+              <Image
+                src={img}
                 alt="Imagem do carrossel"
+                height={80}
+                width={140}
                 class="h-full w-auto object-contain shrink-0 cert-img"
               />
             ))
@@ -120,9 +123,11 @@ const carouselImages = [
           <!-- Duplicate set for infinite loop -->
           {
             carouselImages.map((img) => (
-              <img
-                src={img.src}
+              <Image
+                src={img}
                 alt="Imagem do carrossel"
+                height={80}
+                width={140}
                 class="h-full w-auto object-contain shrink-0 cert-img"
               />
             ))

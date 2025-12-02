@@ -6,19 +6,19 @@
   <nav class="flex justify-between items-center h-full max-w-[1000px] mx-auto w-full">
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center gap-6">
-      <a href="#como-atuo" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+      <a href="#como-atuo" class="nav-link">
         Como atuo?
       </a>
-      <a href="#sobre-mentoria" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
-        Sobre a mentoria
+      <a href="#expertise" class="nav-link">
+        Palestras
       </a>
-      <a href="#expertise" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
-        Expertise
+      <a href="#sobre-mentoria" class="nav-link">
+        Como gerar valor
       </a>
-      <a href="#sobre-mim" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+      <a href="#sobre-mim" class="nav-link">
         Sobre mim
       </a>
-      <a href="#faq" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+      <a href="#faq" class="nav-link">
         FAQ
       </a>
     </div>
@@ -48,29 +48,58 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div 
+  <div
     id="mobile-menu"
     class="hidden md:hidden absolute top-14 left-0 right-0 bg-slate-900/95 backdrop-blur-lg border-b border-white/10"
   >
     <div class="flex flex-col p-4 gap-2">
-      <a href="#como-atuo" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+      <a href="#como-atuo" class="mobile-nav-link">
         Como atuo?
       </a>
-      <a href="#sobre-mentoria" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
-        Sobre a mentoria
+      <a href="#expertise" class="mobile-nav-link">
+        Palestras
       </a>
-      <a href="#expertise" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
-        Expertise
+      <a href="#sobre-mentoria" class="mobile-nav-link">
+        Como gerar valor
       </a>
-      <a href="#sobre-mim" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+      <a href="#sobre-mim" class="mobile-nav-link">
         Sobre mim
       </a>
-      <a href="#faq" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+      <a href="#faq" class="mobile-nav-link">
         FAQ
       </a>
     </div>
   </div>
 </header>
+
+<style>
+  .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 150%;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .mobile-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 150%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .mobile-nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+</style>
 
 <script>
   const mobileMenuButton = document.getElementById('mobile-menu-button');
