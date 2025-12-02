@@ -1,21 +1,36 @@
 ---
 import Hero from "../components/Hero.astro";
+import Stats from "../components/Stats.astro";
+import DNASection from "../components/DNASection.astro";
+import CredibilitySection from "../components/CredibilitySection.astro";
+import PricingSection from "../components/PricingSection.astro";
+import AboutSection from "../components/AboutSection.astro";
+import PodcastSection from "../components/PodcastSection.astro";
+import FAQSection from "../components/FAQSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 ---
 
 <BaseLayout>
   <Hero
-    title="Samuel Santiago"
-    subtitle="Mais de 15 anos de experiência internacional em tecnologia e inovação (Dell, HP)."
+    badge="✨ Gestor de Projetos e Produtos"
+    title="Impulsione com Gestão Ágil e IA."
+    subtitle="Otimize processos e garanta entregas de valor real. Liderança multidisciplinar focada em eficiência, adaptação e resultados mensuráveis."
+    ctaPrimaryText="Entrar em contato"
+    ctaSecondaryText="Saiba mais"
   />
-
-  <section id="features" class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-semibold mb-4">Pronto para começar</h2>
-    <p class="text-slate-600">
-      Use os componentes em <code>src/components</code> e adicione conteúdo em <code
-        >src/pages/</code
-      >.
-    </p>
-  </section>
+  
+  <Stats />
+  
+  <DNASection />
+  
+  <CredibilitySection />
+  
+  <PricingSection />
+  
+  <AboutSection />
+  
+  <PodcastSection />
+  
+  <FAQSection />
 </BaseLayout>

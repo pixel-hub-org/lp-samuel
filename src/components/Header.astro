@@ -1,99 +1,90 @@
 ---
-// Simple header for LPs
+// src/components/Header.astro
 ---
 
-<header class="bg-slate-700/90 border-b border-white/10 backdrop-blur">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-6">
-      <a class="text-sm text-slate-300 hover:text-white" href="#como-atuo"
-        >Como atuo?</a
-      >
-      <a
-        class="text-sm text-slate-300 hover:text-white"
-        href="#sobre-a-mentoria">Sobre a mentoria</a
-      >
-      <a class="text-sm text-slate-300 hover:text-white" href="#resultados"
-        >Resultados</a
-      >
-      <a class="text-sm text-slate-300 hover:text-white" href="#sobre-mim"
-        >Sobre mim</a
-      >
-      <a class="text-sm text-slate-300 hover:text-white" href="#faq">FAQ</a>
-    </nav>
+<header class="fixed top-0 left-0 right-0 z-50 w-full h-14 px-6 border-b border-white/10 bg-white/5 backdrop-blur-sm">
+  <nav class="flex justify-between items-center h-full max-w-7xl mx-auto">
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#como-atuo" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+        Como atuo?
+      </a>
+      <a href="#sobre-mentoria" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+        Sobre a mentoria
+      </a>
+      <a href="#expertise" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+        Expertise
+      </a>
+      <a href="#sobre-mim" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+        Sobre mim
+      </a>
+      <a href="#faq" class="text-white/80 font-medium text-sm hover:text-white transition-colors">
+        FAQ
+      </a>
+    </div>
 
-    <!-- CTA Desktop (restore UX classes) -->
-    <button
-      class="hidden md:flex items-center justify-center px-6 py-[7px] rounded-lg
-      bg-radial-[at_50%_75%] from-[#1169DB] from-92% border-t border-t-[#1169DB]/90 text-white"
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-button"
+      class="md:hidden flex items-center justify-center w-8 h-8 text-white"
+      aria-label="Menu"
     >
-      Entrar em contato
-    </button>
-
-    <!-- Mobile hamburger -->
-    <button
-      id="menuBtn"
-      aria-controls="mobileMenu"
-      aria-expanded="false"
-      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 text-white hover:bg-white/5"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="w-6 h-6"
-      >
-        <path
-          d="M4 6h16M4 12h16M4 18h16"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
-    <!-- Mobile: hamburger + CTA -->
-  </div>
 
-  <!-- Mobile panel -->
-  <div id="mobileMenu" class="md:hidden max-w-6xl mx-auto px-6 pb-4 hidden">
-    <nav class="flex flex-col gap-3">
-      <a
-        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
-        href="#como-atuo">Como atuo?</a
-      >
-      <a
-        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
-        href="#sobre-a-mentoria">Sobre a mentoria</a
-      >
-      <a
-        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
-        href="#resultados">Resultados</a
-      >
-      <a
-        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
-        href="#sobre-mim">Sobre mim</a
-      >
-      <a
-        class="px-3 py-2 rounded-md text-sm text-slate-200 hover:bg-white/5"
-        href="#faq">FAQ</a
-      >
-      <button
-        class="flex items-center justify-center px-6 py-[7px] rounded-lg
-      bg-radial-[at_50%_75%] from-[#1169DB] from-92% border-t border-t-[#1169DB]/90 text-white"
-      >
-        Entrar em contato
-      </button>
-    </nav>
-  </div>
+    <!-- CTA Button -->
+    <button class="relative hidden md:flex h-8 px-6 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] hover:shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12),0_4px_8px_rgba(17,105,219,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all overflow-hidden">
+      Entrar em contato
+      <div class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"></div>
+    </button>
 
-  <script>
-    const btn = document.getElementById("menuBtn");
-    const panel = document.getElementById("mobileMenu");
-    if (btn && panel) {
-      btn.addEventListener("click", () => {
-        const nowHidden = panel.classList.toggle("hidden");
-        btn.setAttribute("aria-expanded", (!nowHidden).toString());
-      });
-    }
-  </script>
+    <!-- Mobile CTA -->
+    <button class="md:hidden relative flex h-8 px-4 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] overflow-hidden">
+      Contato
+      <div class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"></div>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div 
+    id="mobile-menu"
+    class="hidden md:hidden absolute top-14 left-0 right-0 bg-slate-900/95 backdrop-blur-lg border-b border-white/10"
+  >
+    <div class="flex flex-col p-4 gap-2">
+      <a href="#como-atuo" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+        Como atuo?
+      </a>
+      <a href="#sobre-mentoria" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+        Sobre a mentoria
+      </a>
+      <a href="#expertise" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+        Expertise
+      </a>
+      <a href="#sobre-mim" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+        Sobre mim
+      </a>
+      <a href="#faq" class="text-white/80 font-medium text-sm hover:text-white transition-colors py-2 px-4 rounded-lg hover:bg-white/5">
+        FAQ
+      </a>
+    </div>
+  </div>
 </header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

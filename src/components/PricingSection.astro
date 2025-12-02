@@ -1,0 +1,139 @@
+---
+// src/components/PricingSection.astro
+---
+
+<section class="w-full py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      <!-- Left Column - Header -->
+      <div class="flex flex-col gap-4">
+        <div class="inline-flex self-start px-4 py-2 rounded-full border border-white/12 bg-gradient-to-r from-white/4 to-transparent">
+          <span class="text-white text-xs font-medium leading-[1.25]">
+            🎯 Comece a Gerar Valor
+          </span>
+        </div>
+        
+        <h2 class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+          Mentoria de Inteligência Artificial, do zero ao valor.
+        </h2>
+        
+        <p class="text-sm text-white/80 leading-[1.5]">
+          Pare de apenas entender a IA e comece a aplicá-la estrategicamente em seus projetos. Esta é a sua trilha direta, com a experiência de um mentor que já entregou mais de 37 softwares em escala global.
+        </p>
+      </div>
+
+      <!-- Right Column - Pricing Card -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-[360px] p-6 rounded-lg border border-white bg-white/2 flex flex-col gap-4">
+          <!-- Green Glow Effect -->
+          <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-54 h-9 bg-[#19DC71] blur-[50px] opacity-100"></div>
+          
+          <!-- Best Price Badge -->
+          <div class="flex items-center justify-center px-3 py-1.5 gap-2 rounded-full border border-white/8 bg-[rgba(34,255,126,0.16)]">
+            <span class="text-[#22FF7E] text-xs font-semibold tracking-wider leading-[1.5]">
+              MELHOR PREÇO
+            </span>
+          </div>
+
+          <!-- Price -->
+          <div class="flex flex-col gap-0">
+            <h3 class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+              R$ 0.000,00
+            </h3>
+            <p class="text-sm text-white/80 leading-[1.5]">
+              Em até 12x sem juros no cartão
+            </p>
+          </div>
+
+          <!-- Divider -->
+          <div class="w-full h-px bg-white/8"></div>
+
+          <!-- Features List -->
+          <div class="flex flex-col gap-0">
+            <div class="flex items-center gap-2 py-2 rounded-r-lg">
+              <svg class="w-5 h-5 flex-shrink-0" fill="#22FF7E" viewBox="0 0 20 20">
+                <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z"/>
+              </svg>
+              <p class="text-sm font-medium leading-[1.5]">
+                <span class="text-white/80">Aplicação </span>
+                <span class="text-white">Prática</span>
+                <span class="text-white/80"> da IA.</span>
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 py-2 rounded-r-lg">
+              <svg class="w-5 h-5 flex-shrink-0" fill="#22FF7E" viewBox="0 0 20 20">
+                <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z"/>
+              </svg>
+              <p class="text-sm font-medium leading-[1.5]">
+                <span class="text-white/80">Métodos utilizados </span>
+                <span class="text-white">internacionalmente</span>
+                <span class="text-white/80">.</span>
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 py-2 rounded-r-lg">
+              <svg class="w-5 h-5 flex-shrink-0" fill="#22FF7E" viewBox="0 0 20 20">
+                <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z"/>
+              </svg>
+              <p class="text-sm font-medium leading-[1.5]">
+                <span class="text-white/80">IA diretamente nas suas </span>
+                <span class="text-white">estratégias</span>
+                <span class="text-white/80">.</span>
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2 py-2 rounded-r-lg">
+              <svg class="w-5 h-5 flex-shrink-0" fill="#22FF7E" viewBox="0 0 20 20">
+                <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z"/>
+              </svg>
+              <p class="text-sm font-medium leading-[1.5]">
+                <span class="text-white/80">Seja um líder na </span>
+                <span class="text-white">transformação digital</span>
+                <span class="text-white/80">.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="p-1 rounded-xl border border-[#8FC0FF]">
+            <button class="relative w-full h-8 px-4 flex items-center justify-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] hover:shadow-lg transition-all overflow-hidden">
+              Adquirir mentoria
+              <div class="absolute w-16 h-16 -right-[117px] -bottom-[50px] bg-white/66 blur-[34.5px] pointer-events-none"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mt-12 border-t border-white/8">
+      <div class="flex flex-col items-center text-center gap-2 p-6 border-b md:border-b-0 md:border-r border-white/8">
+        <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+          Foco na prática
+        </h3>
+        <p class="text-sm text-white/80 leading-[1.5]">
+          Foco na aplicação prática e estratégica da IA para otimizar processos, reduzir custos e gerar a eficiência que se converte em valor real para o negócio.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-2 p-6 border-b md:border-b-0 md:border-r border-white/8">
+        <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+          Agilidade empresarial
+        </h3>
+        <p class="text-sm text-white/80 leading-[1.5]">
+          Aplique a Agilidade e os frameworks de projetos internacionais DELL/HP para garantir entregas contínuas de valor e a escalabilidade das suas soluções de IA.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-2 p-6">
+        <h3 class="text-lg font-semibold text-[#F2F2F2] font-[family-name:var(--font-outfit)] leading-[1.25]">
+          Visão técnica
+        </h3>
+        <p class="text-sm text-white/80 leading-[1.5]">
+          Desenvolva a visão técnica e a liderança colaborativa para conduzir times de alta performance e se posicionar como o motor da inovação na sua empresa.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
