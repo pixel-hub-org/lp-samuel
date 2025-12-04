@@ -27,49 +27,115 @@
       </p>
     </div>
 
-    <!-- Images Grid -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[315px_1fr_314px] gap-8 items-center justify-center"
-    >
-      <!-- Image 1 -->
-      <div
-        class="relative rounded-2xl border border-white/12 overflow-hidden aspect-[105/59 w-full max-w-[315px] mx-auto"
-      >
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/80964814333e6d3472729be00641c7add92ae881?width=630"
-          alt="Evento 1"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
-      <!-- Center Image with Badge -->
-      <div
-        class="relative rounded-2xl border border-white/12 overflow-hidden aspect-105/59 w-full max-w-[630px] mx-auto"
-      >
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/d697105e82a8a0b1948cfcb6665b6ce67ce48909?width=1260"
-          alt="Encontros Acadêmicos - FLF 2025"
-          class="w-full h-full object-cover"
-        />
-        <div
-          class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent backdrop-blur-sm"
+    <!-- Images Carousel (3-up with center in front) -->
+    <div class="relative w-screen left-1/2 transform -translate-x-1/2">
+      <div class="relative flex items-center justify-center">
+        <!-- Prev button -->
+        <button
+          class="carousel-btn prev absolute left-0 -translate-x-1/2 z-20 bg-white/6 hover:bg-white/10 rounded-full p-2 text-white"
+          aria-label="Anterior"
         >
-          <span class="text-white text-xs font-medium leading-tight">
-            💡 Encontros Acadêmicos - FLF 2025
-          </span>
+          ‹
+        </button>
+
+        <!-- Track -->
+        <div class="carousel-track flex items-center justify-center gap-8 w-full overflow-visible">
+          <!-- Left (behind) -->
+          <div class="carousel-item left relative rounded-2xl border border-white/12 overflow-hidden flex-shrink-0 w-[315px] h-[177px] z-0 transform scale-90 lg:scale-95 translate-y-4 lg:translate-y-6 opacity-70">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/80964814333e6d3472729be00641c7add92ae881?width=630"
+              alt="Evento 1"
+              class="w-[315px] h-[177px] object-cover rounded-2xl"
+            />
+          </div>
+
+          <!-- Center (front) -->
+          <div class="carousel-item center relative rounded-2xl border border-white/12 overflow-hidden flex-shrink-0 w-[630px] h-[354px] z-20 transform scale-105 lg:scale-110 translate-y-0 shadow-2xl">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/d697105e82a8a0b1948cfcb6665b6ce67ce48909?width=1260"
+              alt="Encontros Acadêmicos - FLF 2025"
+              class="w-[630px] h-[354px] object-cover rounded-2xl"
+            />
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent backdrop-blur-sm">
+              <span class="text-white text-xs font-medium leading-tight">
+                💡 Encontros Acadêmicos - FLF 2025
+              </span>
+            </div>
+          </div>
+
+          <!-- Right (behind) -->
+          <div class="carousel-item right relative rounded-2xl border border-white/12 overflow-hidden flex-shrink-0 w-[315px] h-[177px] z-0 transform scale-90 lg:scale-95 translate-y-4 lg:translate-y-6 opacity-70">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/b2b37aadd4c538694926b139b4ebc6a2da8b34de?width=628"
+              alt="Evento 3"
+              class="w-[315px] h-[177px] object-cover rounded-2xl"
+            />
+          </div>
         </div>
+
+        <!-- Next button -->
+        <button
+          class="carousel-btn next absolute right-0 translate-x-1/2 z-20 bg-white/6 hover:bg-white/10 rounded-full p-2 text-white"
+          aria-label="Próximo"
+        >
+          ›
+        </button>
       </div>
 
-      <!-- Image 3 -->
-      <div
-        class="relative rounded-2xl border border-white/12 overflow-hidden aspect-314/177 w-full max-w-[314px] mx-auto"
-      >
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/b2b37aadd4c538694926b139b4ebc6a2da8b34de?width=628"
-          alt="Evento 3"
-          class="w-full h-full object-cover"
-        />
-      </div>
+      <!-- Carousel script: rotate classes among left/center/right -->
+      <script type="module">
+        if (typeof document !== 'undefined') {
+          const track = document.querySelector('.carousel-track');
+          if (!track) return;
+
+          const items = Array.from(track.querySelectorAll('.carousel-item'));
+          const prevBtn = document.querySelector('.carousel-btn.prev');
+          const nextBtn = document.querySelector('.carousel-btn.next');
+
+          function stripPositionClasses(el) {
+            el.classList.remove(
+              'left','center','right',
+              'scale-75','scale-100','scale-90','scale-105',
+              'translate-y-2','translate-y-4','translate-y-0',
+              'lg:scale-90','lg:scale-95','lg:scale-110','lg:translate-y-4','lg:translate-y-6',
+              'z-10','z-0','z-20','opacity-80','opacity-70','shadow-2xl'
+            );
+          }
+
+          function applyPositions(order) {
+            // order: [left, center, right]
+            const [left, center, right] = order;
+            items.forEach(i => stripPositionClasses(i));
+
+            left.classList.add('left', 'transform', 'scale-90', 'lg:scale-95', 'translate-y-4', 'lg:translate-y-6', 'z-0', 'opacity-70');
+            center.classList.add('center', 'transform', 'scale-105', 'lg:scale-110', 'translate-y-0', 'z-20', 'shadow-2xl');
+            right.classList.add('right', 'transform', 'scale-90', 'lg:scale-95', 'translate-y-4', 'lg:translate-y-6', 'z-0', 'opacity-70');
+          }
+
+          // initial order
+          let order = [items[0], items[1], items[2]];
+          applyPositions(order);
+
+          function rotateNext() {
+            order.push(order.shift());
+            applyPositions(order);
+          }
+
+          function rotatePrev() {
+            order.unshift(order.pop());
+            applyPositions(order);
+          }
+
+          nextBtn?.addEventListener('click', rotateNext);
+          prevBtn?.addEventListener('click', rotatePrev);
+
+          // keyboard support
+          window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') rotateNext();
+            if (e.key === 'ArrowLeft') rotatePrev();
+          });
+        }
+      </script>
     </div>
   </div>
 </section>
