@@ -2,6 +2,55 @@
 // src/components/DNASection.astro
 ---
 
+<script>
+  function initDnaHighlight() {
+    const features = document.querySelectorAll('[data-feature]');
+    let currentIndex = 0;
+
+    const highlightedClasses = ['bg-linear-to-r', 'from-white/4', 'to-transparent', 'border-l-4', 'border-[#4489E3]'];
+    const iconHighlighted = ['border-white/12', 'bg-[#4489E3]'];
+    const iconDefault = ['border-[#F2F2F2]/8', 'bg-white/8'];
+
+    const updateHighlight = () => {
+      features.forEach((feature, index) => {
+        const main = feature.firstElementChild; // main feature container
+        const icon = feature.querySelector('[data-icon]');
+
+        if (main) {
+          if (index === currentIndex) {
+            highlightedClasses.forEach(cls => main.classList.add(cls));
+          } else {
+            highlightedClasses.forEach(cls => main.classList.remove(cls));
+          }
+        }
+
+        if (icon) {
+          if (index === currentIndex) {
+            // make icon blue
+            iconDefault.forEach(c => icon.classList.remove(c));
+            iconHighlighted.forEach(c => icon.classList.add(c));
+          } else {
+            // reset to default gray
+            iconHighlighted.forEach(c => icon.classList.remove(c));
+            iconDefault.forEach(c => icon.classList.add(c));
+          }
+        }
+      });
+
+      currentIndex = (currentIndex + 1) % features.length;
+    };
+
+    updateHighlight();
+    setInterval(updateHighlight, 5000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDnaHighlight);
+  } else {
+    initDnaHighlight();
+  }
+</script>
+
 <section id="como-atuo" class="w-full py-20">
   <div class="max-w-7xl mx-auto px-6 lg:px-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
@@ -76,12 +125,14 @@
       <!-- Right Column - Features -->
       <div class="flex flex-col gap-0">
         <!-- Feature 1 -->
-        <div
+            <div data-feature="1">
+          <div
           class="flex flex-col gap-2 p-6 rounded-r-lg bg-linear-to-r from-white/4 to-transparent border-l-4 border-[#4489E3]"
         >
           <div class="flex items-center gap-4">
             <div
-              class="flex items-center justify-center w-8 h-8 rounded-lg border border-white/12 bg-[#4489E3]"
+              data-icon
+              class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
             >
               <svg
                 class="w-4 h-4 text-white"
@@ -105,11 +156,14 @@
             sua área ou empresa.
           </p>
         </div>
+      </div>
 
         <!-- Feature 2 -->
+          <div data-feature="2">
         <div class="flex flex-col gap-2 p-6 rounded-r-lg">
           <div class="flex items-center gap-4">
             <div
+              data-icon
               class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
             >
               <svg
@@ -134,11 +188,14 @@
             entregas de valor mensurável.
           </p>
         </div>
+      </div>
 
         <!-- Feature 3 -->
+          <div data-feature="3">
         <div class="flex flex-col gap-2 p-6 rounded-r-lg">
           <div class="flex items-center gap-4">
             <div
+              data-icon
               class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
             >
               <svg
@@ -163,11 +220,14 @@
             adaptativa.
           </p>
         </div>
+      </div>
 
         <!-- Feature 4 -->
+          <div data-feature="4">
         <div class="flex flex-col gap-2 p-6 rounded-r-lg">
           <div class="flex items-center gap-4">
             <div
+              data-icon
               class="flex items-center justify-center w-8 h-8 rounded-lg border border-[#F2F2F2]/8 bg-white/8"
             >
               <svg
@@ -193,6 +253,7 @@
           </p>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
