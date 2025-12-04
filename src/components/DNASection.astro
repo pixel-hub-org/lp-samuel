@@ -51,7 +51,110 @@
   }
 </script>
 
-<section id="como-atuo" class="w-full py-20">
+<style>
+  .comet-container {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    width: 60vw;
+    height: 60vw;
+    max-width: 900px;
+    max-height: 900px;
+  }
+
+  .comet-1 {
+    left: -20%;
+    bottom: -50%;
+  }
+
+  .comet-2 {
+    left: -30%;
+    bottom: -60%;
+  }
+
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid transparent;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    cursor: pointer;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .testimonial-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid transparent;
+    border-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%) 1;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .comet-container {
+      width: 80vw;
+      height: 80vw;
+    }
+
+    .comet-1 {
+      left: -35%;
+      bottom: -40%;
+    }
+
+    .comet-2 {
+      left: -45%;
+      bottom: -40%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .comet-container {
+      width: 100vw;
+      height: 100vw;
+    }
+
+    .comet-1 {
+      left: -50%;
+      bottom: -50%;
+    }
+
+    .comet-2 {
+      left: -60%;
+      bottom: -50%;
+    }
+  }
+</style>
+
+<section id="como-atuo" class="w-full py-20" style="position:relative; z-index:1;">
+  <div class="comet-container comet-1">
+    <img src="/src/assets/large-comet.svg" alt="feixe azul" style="width:100%; height:100%; object-fit:cover;" />
+  </div>
+  <div class="comet-container comet-2">
+    <img src="/src/assets/large-comet-1.svg" alt="feixe azul" style="width:100%; height:100%; object-fit:cover;" />
+  </div>
   <div class="max-w-7xl mx-auto px-6 lg:px-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
       <!-- Left Column -->
@@ -81,22 +184,37 @@
 
         <!-- Testimonial Card -->
         <div
-          class="flex flex-col gap-4 p-4 rounded-lg border border-white bg-white/2"
+          class="testimonial-card flex flex-col gap-4"
         >
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
               <div class="flex -space-x-3">
                 <div
-                  class="w-6 h-6 rounded-full border border-white/12 bg-gray-500"
+                  class="w-6 h-6 rounded-full border border-white/12 "
                 >
+                  <img
+                    src="/src/assets/Ellipse_4.svg"
+                    alt="Depoimento 1"
+                    class="w-full h-full object-cover rounded-full"
+                  />
                 </div>
                 <div
-                  class="w-6 h-6 rounded-full border border-white/12 bg-gray-600"
+                  class="w-6 h-6 rounded-full border border-white/12"
                 >
+                  <img
+                    src="/src/assets/Ellipse_2.svg"
+                    alt="Depoimento 2"
+                    class="w-full h-full object-cover rounded-full"
+                  />
                 </div>
                 <div
-                  class="w-6 h-6 rounded-full border border-white/12 bg-gray-400"
+                  class="w-6 h-6 rounded-full border border-white/12"
                 >
+                  <img
+                    src="/src/assets/Ellipse_3.svg"
+                    alt="Depoimento 3"
+                    class="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               <span
