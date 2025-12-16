@@ -2,72 +2,76 @@
 // src/components/Header.astro
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 w-full h-14 px-6 border-b border-white/8 backdrop-blur-md" style="background-color: rgba(255, 255, 255, 0.01)">
-  <nav class="flex justify-between items-center h-full max-w-[1000px] mx-auto w-full">
+<header
+  class="fixed top-0 left-0 right-0 z-50 w-full h-14 px-6 border-b border-white/8 backdrop-blur-md"
+  style="background-color: rgba(255, 255, 255, 0.01)"
+>
+  <nav
+    class="flex justify-between items-center h-full max-w-[1000px] mx-auto w-full"
+  >
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center gap-6">
-      <a href="#como-atuo" class="nav-link">
-        Como atuo?
-      </a>
-      <a href="#expertise" class="nav-link">
-        Palestras
-      </a>
-      <a href="#sobre-mentoria" class="nav-link">
-        Como gerar valor
-      </a>
-      <a href="#sobre-mim" class="nav-link">
-        Sobre mim
-      </a>
-      <a href="#faq" class="nav-link">
-        FAQ
-      </a>
+      <a href="#como-atuo" class="nav-link"> Como atuo? </a>
+      <a href="#expertise" class="nav-link"> Palestras </a>
+      <a href="#sobre-mentoria" class="nav-link"> Como gerar valor </a>
+      <a href="#sobre-mim" class="nav-link"> Sobre mim </a>
+      <a href="#faq" class="nav-link"> FAQ </a>
     </div>
 
     <!-- Mobile Menu Button -->
-    <button 
+    <button
       id="mobile-menu-button"
-      class="md:hidden flex items-center justify-center w-8 h-8 text-white"
+      class="md:hidden flex items-center justify-center w-8 h-8 text-white cursor-pointer"
       aria-label="Menu"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
 
     <!-- CTA Button -->
-    <button class="relative hidden md:flex h-8 px-6 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] hover:shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12),0_4px_8px_rgba(17,105,219,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all overflow-hidden">
+    <button
+      class="relative hidden md:flex h-8 px-6 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] hover:shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12),0_4px_8px_rgba(17,105,219,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all overflow-hidden"
+    >
       Entrar em contato
-      <div class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"></div>
+      <div
+        class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
+      >
+      </div>
     </button>
 
     <!-- Mobile CTA -->
-    <button class="md:hidden relative flex h-8 px-4 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] overflow-hidden">
+    <button
+      class="md:hidden relative flex h-8 px-4 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] overflow-hidden"
+    >
       Contato
-      <div class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"></div>
+      <div
+        class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
+      >
+      </div>
     </button>
   </nav>
 
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden absolute top-14 left-0 right-0 bg-slate-900/95 backdrop-blur-lg border-b border-white/10"
+    class="mobile-menu-closed md:hidden absolute top-14 left-0 right-0 bg-[#0A0A0A] border-b border-white/12 z-50"
   >
     <div class="flex flex-col p-4 gap-2">
-      <a href="#como-atuo" class="mobile-nav-link">
-        Como atuo?
-      </a>
-      <a href="#expertise" class="mobile-nav-link">
-        Palestras
-      </a>
-      <a href="#sobre-mentoria" class="mobile-nav-link">
-        Como gerar valor
-      </a>
-      <a href="#sobre-mim" class="mobile-nav-link">
-        Sobre mim
-      </a>
-      <a href="#faq" class="mobile-nav-link">
-        FAQ
-      </a>
+      <a href="#como-atuo" class="mobile-nav-link"> Como atuo? </a>
+      <a href="#expertise" class="mobile-nav-link"> Palestras </a>
+      <a href="#sobre-mentoria" class="mobile-nav-link"> Como gerar valor </a>
+      <a href="#sobre-mim" class="mobile-nav-link"> Sobre mim </a>
+      <a href="#faq" class="mobile-nav-link"> FAQ </a>
     </div>
   </div>
 </header>
@@ -99,21 +103,54 @@
     color: rgba(255, 255, 255, 1);
     background-color: rgba(255, 255, 255, 0.05);
   }
+
+  #mobile-menu {
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out,
+      max-height 0.3s ease-in-out;
+    transform-origin: top;
+  }
+
+  .mobile-menu-closed {
+    opacity: 0;
+    transform: scaleY(0);
+    max-height: 0;
+    pointer-events: none;
+  }
+
+  .mobile-menu-open {
+    opacity: 1;
+    transform: scaleY(1);
+    max-height: 500px;
+    pointer-events: auto;
+  }
 </style>
 
 <script>
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-  mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("mobile-menu-closed");
+    mobileMenu?.classList.toggle("mobile-menu-open");
   });
 
   // Close menu when clicking a link
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
+  const mobileLinks = mobileMenu?.querySelectorAll("a");
+  mobileLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.remove("mobile-menu-open");
+      mobileMenu?.classList.add("mobile-menu-closed");
     });
+  });
+
+  // Close menu when resizing to desktop
+  window.addEventListener("resize", () => {
+    const isDesktopSize = window.matchMedia("(min-width: 768px)").matches;
+    if (isDesktopSize && mobileMenu?.classList.contains("mobile-menu-open")) {
+      mobileMenu.classList.remove("mobile-menu-open");
+      mobileMenu.classList.add("mobile-menu-closed");
+    }
   });
 </script>
