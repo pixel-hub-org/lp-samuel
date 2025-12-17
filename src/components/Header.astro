@@ -2,20 +2,17 @@
 // src/components/Header.astro
 ---
 
-<header
-  class="fixed top-0 left-0 right-0 z-50 w-full h-14 px-6 border-b border-white/8 backdrop-blur-md"
-  style="background-color: rgba(255, 255, 255, 0.01)"
+<header class="header-nav"
 >
-  <nav
-    class="flex justify-between items-center h-full max-w-[1000px] mx-auto w-full"
+  <nav class="header-nav-content"
   >
     <!-- Desktop Navigation -->
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#como-atuo" class="nav-link"> Como atuo? </a>
-      <a href="#expertise" class="nav-link"> Palestras </a>
-      <a href="#sobre-mentoria" class="nav-link"> Como gerar valor </a>
-      <a href="#sobre-mim" class="nav-link"> Sobre mim </a>
-      <a href="#faq" class="nav-link"> FAQ </a>
+    <div class="desktop-nav">
+      <a href="#como-atuo" class="nav-link">Como atuo?</a>
+      <a href="#expertise" class="nav-link">Palestras</a>
+      <a href="#sobre-mentoria" class="nav-link">Mentoria</a>
+      <a href="#sobre-mim" class="nav-link">Sobre mim</a>
+      <a href="#faq" class="nav-link">FAQ</a>
     </div>
 
     <!-- Mobile Menu Button -->
@@ -64,7 +61,8 @@
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="mobile-menu-closed md:hidden absolute top-14 left-0 right-0 bg-[#0A0A0A] border-b border-white/12 z-50"
+    class="mobile-menu-closed md:hidden absolute left-0 right-0 bg-[#0A0A0A] border-b border-white/12 z-50"
+    style="top: 55px"
   >
     <div class="flex flex-col p-4 gap-2">
       <a href="#como-atuo" class="mobile-nav-link"> Como atuo? </a>
@@ -77,6 +75,43 @@
 </header>
 
 <style>
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    width: 100%;
+    height: 55px;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+  }
+
+  .header-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: flex;
+    }
+  }
+
   .nav-link {
     color: rgba(255, 255, 255, 0.8);
     font-size: 13px;
