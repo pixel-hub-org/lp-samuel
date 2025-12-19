@@ -1,9 +1,10 @@
 ---
-// src/components/CredibilitySection.astro
+const images = await Astro.glob('../assets/images/samuel-*.*');
 ---
 
 <section id="expertise" class="w-full py-20 overflow-hidden">
   <div class="w-full">
+
     <!-- Header -->
     <div class="flex flex-col items-center text-center gap-4 mb-12">
       <div class="inline-flex px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent">
@@ -26,6 +27,7 @@
     <!-- Carousel -->
     <div class="relative w-full overflow-visible">
       <div class="carousel-stage relative mx-auto overflow-visible">
+
         <!-- Prev -->
         <button
           class="carousel-prev absolute top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
@@ -36,18 +38,15 @@
 
         <!-- Track -->
         <div class="carousel-track relative flex items-center justify-center h-[24rem] overflow-visible">
-          <div class="carousel-item" data-index="0">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/80964814333e6d3472729be00641c7add92ae881?width=630" />
-          </div>
-
-          <div class="carousel-item is-active" data-index="1">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/d697105e82a8a0b1948cfcb6665b6ce67ce48909?width=1260" />
-            <div class="badge">💡 Encontros Acadêmicos - FLF 2025</div>
-          </div>
-
-          <div class="carousel-item" data-index="2">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/b2b37aadd4c538694926b139b4ebc6a2da8b34de?width=628" />
-          </div>
+          {images.map((image, index) => (
+            <div
+              class={`carousel-item ${index === 1 ? 'is-active' : ''}`}
+              data-index={index}
+            >
+              <img src={image.default.src} alt={`Imagem ${index + 1}`} />
+              <div class="badge">💡 Encontros Acadêmicos - FLF 2025</div>
+            </div>
+          ))}
         </div>
 
         <!-- Next -->
@@ -61,11 +60,12 @@
     </div>
   </div>
 
+  <!-- Styles -->
   <style>
     :root {
       --slide-width: 39.375rem;
-      --side-offset: 35rem;
-      --side-scale: 0.60;
+      --side-offset: 34rem;
+      --side-scale: 0.55;
     }
 
     .carousel-stage {
@@ -93,8 +93,8 @@
       border-radius: 1rem;
       overflow: hidden;
       border: 0.0625rem solid rgba(255, 255, 255, 0.12);
-      opacity: 0.6;
-      transform: scale(0.9) translateY(1.75rem);
+      opacity: 0.5;
+      transform: scale(0.85) translateY(2rem);
       transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
       z-index: 10;
       will-change: transform;
@@ -113,11 +113,15 @@
     }
 
     .carousel-item.is-left {
-      transform: translateX(calc(-1 * var(--side-offset))) scale(var(--side-scale)) translateY(2.25rem);
+      transform: translateX(calc(-1 * var(--side-offset)))
+        scale(var(--side-scale))
+        translateY(2.25rem);
     }
 
     .carousel-item.is-right {
-      transform: translateX(var(--side-offset)) scale(var(--side-scale)) translateY(2.25rem);
+      transform: translateX(var(--side-offset))
+        scale(var(--side-scale))
+        translateY(2.25rem);
     }
 
     .badge {
@@ -136,6 +140,7 @@
     }
   </style>
 
+  <!-- Script -->
   <script type="module">
     const items = Array.from(document.querySelectorAll('.carousel-item'));
     const prev = document.querySelector('.carousel-prev');
@@ -146,7 +151,9 @@
     function render() {
       items.forEach((item, index) => {
         item.classList.remove('is-active', 'is-left', 'is-right');
+
         const offset = (index - active + items.length) % items.length;
+
         if (offset === 0) item.classList.add('is-active');
         if (offset === items.length - 1) item.classList.add('is-left');
         if (offset === 1) item.classList.add('is-right');
