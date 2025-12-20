@@ -1,0 +1,237 @@
+/* src/styles/hero-effects.css */
+
+.hero-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(5, 5, 5, 0.9) 100%
+  );
+}
+
+/* --- O FEIXE DE LUZ (BEAM) --- */
+
+.beam-container {
+  width: 800px;
+  height: 150vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+}
+
+/* O NÚCLEO DO FEIXE */
+.beam-core {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 27px; /* Largura do Figma */
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 105, 219, 0) 0%,
+    rgba(100, 180, 255, 0) 10%,
+    rgba(255, 255, 255, 0.95) 40%,
+    rgba(255, 255, 255, 0.95) 60%,
+    rgba(100, 180, 255, 0) 90%,
+    rgba(17, 105, 219, 0) 100%
+  );
+  box-shadow:
+    0 0 23.6px #3a79ff,
+    0 0 32.1px #3a79ff,
+    inset 0 0 4px #3a79ff;
+  filter: blur(5px);
+  z-index: 2;
+  opacity: 0.8;
+}
+
+/* O BRILHO EXTERNO */
+.beam-glow-outer {
+  position: absolute;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(17, 105, 219, 0.1) 15%,
+    rgba(17, 105, 219, 0.25) 50%,
+    rgba(17, 105, 219, 0.1) 85%,
+    transparent 100%
+  );
+  filter: blur(220px);
+  z-index: 1;
+}
+
+/* --- PARTÍCULAS --- */
+.particle {
+  position: absolute;
+  background: #e0edff;
+  box-shadow: 0 0 8px #3a79ff;
+  border-radius: 50%;
+  animation: float-particle 5s ease-in-out infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-40px) scale(1);
+  }
+  100% {
+    transform: translateY(-150px) scale(0);
+    opacity: 0;
+  }
+}
+
+.heading-underline {
+  background: linear-gradient(90deg, #1169db 0%, transparent 100%);
+}
+
+/* --- ANIMAÇÃO DO BOTÃO --- */
+/* Mantive linear para garantir a velocidade constante em todo o trajeto */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-border-spin {
+  animation: spin-slow 4s linear infinite; /* Ajuste os segundos (4s) conforme preferir a velocidade */
+}
+
+.cobrinha-gradient {
+  background-image: conic-gradient(
+    from 360deg,
+    transparent 0%,
+    /* Cauda (início invisível) */ #60a5fa 70%,
+    /* Corpo (Azul claro ocupando a maior parte) */ #ffffff 100%
+      /* Cabeça (Branco puro encontrando o início) */
+  );
+}
+
+/* --- FEIXE DE LUZ (EFEITO LANTERNA/FADE-OUT) --- */
+.diagonal-beam {
+  position: absolute;
+  top: -30%;
+  left: -70%; /* Mantido sua posição original */
+
+  width: 120%;
+  height: 200px;
+
+  background: linear-gradient(
+    150deg,
+    rgba(2, 26, 78, 0) 0%,
+    /* CAUDA: Começa 100% transparente (desaparece no fundo) */
+      rgba(17, 105, 219, 0.2) 25%,
+    /* Um leve "fumaça" azul */ rgba(17, 105, 219, 0.9) 80%,
+    /* CORPO: Azul vibrante quase no final */ rgba(255, 255, 255, 0) 90%,
+    /* CABEÇA: O brilho branco intenso (a lâmpada) */ rgba(255, 255, 255, 0)
+      100% /* Corte suave final pra não ficar linha dura */
+  );
+
+  transform: rotate(45deg);
+
+  /* Blur alto é essencial para misturar as cores */
+  filter: blur(88px);
+  mix-blend-mode: screen;
+
+  opacity: 0.8;
+  z-index: 0;
+  pointer-events: none;
+
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.6;
+    transform: rotate(45deg) translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    /* Movimento sutil para frente, acompanhando a luz */
+    transform: rotate(45deg) translate(30px, 10px) scale(1.05);
+  }
+  100% {
+    opacity: 0.6;
+    transform: rotate(45deg) translate(0, 0) scale(1);
+  }
+}
+
+@media (max-width: 1023.5px) {
+  /* 1. O TRUQUE DA MÁSCARA: */
+  /* Isso torna INVISÍVEL tudo que estiver na metade superior do container.
+     Não importa o brilho ou sombra, ele será cortado. */
+  .beam-container {
+    height: 120vh; /* Altura suficiente para ir até o chão */
+    top: 60%; /* Posiciona o centro mais para baixo */
+
+    /* A máscara: Transparente do 0% ao 40% (topo apagado), aparecendo gradualmente depois */
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 40%,
+      black 70%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 40%,
+      black 70%
+    );
+  }
+
+  /* 2. NÚCLEO: Reforço para garantir que o topo seja transparente */
+  .beam-core {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(17, 105, 219, 0) 100%
+    ) !important;
+
+    /* Remove sombras superiores */
+    box-shadow:
+      0 10px 20px #3a79ff,
+      0 20px 30px #3a79ff !important;
+  }
+
+  /* 3. GLOW EXTERNO */
+  .beam-glow-outer {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(17, 105, 219, 0.25) 60%,
+      transparent 100%
+    ) !important;
+  }
+
+  /* 4. GLOW INTERNO */
+  .beam-glow-inner {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(58, 121, 255, 0.4) 60%,
+      transparent 100%
+    ) !important;
+  }
+
+  /* 5. PARTÍCULAS */
+  /* Garante que partículas não voem na área apagada */
+  #beam-particles {
+    opacity: 0.6;
+  }
+}
