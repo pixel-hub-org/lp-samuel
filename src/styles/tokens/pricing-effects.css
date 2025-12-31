@@ -1,0 +1,98 @@
+/* src/styles/pricing-effects.css */
+
+
+/* --- CARD DE PREÇO (EFEITO VIDRO) --- */
+.pricing-glass-card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  
+  /* FUNDO: Semi-transparente escuro */
+  background-color: rgba(20, 20, 20, 0.4); 
+  
+  /* BLUR: O efeito de vidro fosco */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  
+  /* BORDA: Fina e sutil (efeito vidro cortado) */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* SOMBRA: Leve profundidade + Brilho interno na borda superior */
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+
+  border-radius: 16px;
+  padding: 1.5rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+/* O brilho verde interno no topo */
+.pricing-top-glow {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 180px;
+  height: 80px;
+  
+  background-color: #19DC71;
+  filter: blur(60px);
+  opacity: 0.5; 
+  pointer-events: none;
+}
+
+.pricing-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 0.375rem 0.75rem;
+  gap: 0.5rem;
+  
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(25, 220, 113, 0.1);
+  
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.pricing-badge span {
+  color: #22FF7E;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .gradient-separator-right {
+    position: relative;
+  }
+
+  .gradient-separator-right::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    bottom: 15%;
+    width: 1px; /* Espessura da linha */
+    
+    /* O Gradiente: Transparente no topo -> Branco suave no meio -> Transparente no fundo */
+    background: linear-gradient(
+      to bottom, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.85) 50%, 
+      transparent 100%
+    );
+    
+    pointer-events: none; 
+  }
+}
