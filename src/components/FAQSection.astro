@@ -2,18 +2,37 @@
 // src/components/FAQSection.astro
 ---
 
----
----
-
-<section id="faq" class="w-full py-20">
-  <div class="max-w-7xl mx-auto px-6 lg:px-24">
-    <!-- Header -->
+<section id="faq" class="relative w-full py-20 overflow-hidden">
+  <!-- FEIXE DIAGONAL FAQ (↗ direita superior) -->
+  <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
     <div
-      class="flex flex-col items-center text-center gap-4 mb-12 max-w-md mx-auto"
-    >
-      <h2
-        class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-outfit leading-tight"
-      >
+      class="
+      absolute
+      left-[-50%]
+      top-[90%]
+      w-[1200px]
+      h-[200px]
+      rotate-[-45deg]
+      blur-[88px]
+      opacity-80
+      mix-blend-screen
+    "
+    style="
+      background: linear-gradient(
+        150deg,
+        rgba(2, 26, 78, 0) 0%,
+        rgba(17, 105, 219, 0.35) 40%,
+        rgba(17, 105, 219, 0.9) 60%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    "
+    ></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-24">
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center gap-4 mb-12 max-w-md mx-auto">
+      <h2 class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-outfit leading-tight">
         F.A.Q
       </h2>
       <p class="text-sm text-white/80 leading-normal">
@@ -23,102 +42,57 @@
     </div>
 
     <!-- FAQ Items -->
-    <div class="flex flex-col gap-8 max-w-3xl mx-auto" data-faq>
+    <div class="flex flex-col gap-8 max-w-4xl mx-auto" data-faq>
       <!-- FAQ Item 1 -->
-      <div
-        class="faq-item relative flex flex-col gap-2 p-6 rounded-lg border border-white/12 bg-linear-to-r from-white/4 to-transparent transition-all duration-300 ease-out"
-      >
+      <div class="faq-item relative flex flex-col gap-2 p-6 rounded-lg border border-white/12 bg-linear-to-r from-white/4 to-transparent transition-all duration-300 ease-out">
         <div class="flex items-start justify-between cursor-pointer faq-trigger">
-          <h3
-            class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
-          >
+          <h3 class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight">
             Preciso saber programar?
           </h3>
-          <button
-            class="shrink-0 w-6 h-6 text-[#F2F2F2] cursor-pointer"
-            aria-label="Expandir"
-          >
-            <svg
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              class="faq-icon cursor-pointer transition-transform duration-300"
-            >
-              <path
-                d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"
-              ></path>
+          <button class="shrink-0 w-6 h-6 text-[#F2F2F2]" aria-label="Expandir">
+            <svg fill="currentColor" viewBox="0 0 24 24" class="faq-icon transition-transform duration-300">
+              <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
             </svg>
           </button>
         </div>
 
-        <p
-          class="faq-content max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out text-sm text-white/80 leading-normal pt-2"
-        >
+        <p class="faq-content max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out text-sm text-white/80 pt-2">
           Não. A mentoria é focada em aplicação estratégica, não em código.
         </p>
       </div>
 
       <!-- FAQ Item 2 -->
-      <div
-        class="faq-item relative flex flex-col gap-2 p-6 rounded-lg border border-white/12 bg-linear-to-r from-white/4 to-transparent transition-all duration-300 ease-out"
-      >
+      <div class="faq-item relative flex flex-col gap-2 p-6 rounded-lg border border-white/12 bg-linear-to-r from-white/4 to-transparent transition-all duration-300 ease-out">
         <div class="flex items-start justify-between cursor-pointer faq-trigger">
-          <h3
-            class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
-          >
+          <h3 class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight">
             Quando começo a ver resultados?
           </h3>
-          <button
-            class="shrink-0 w-6 h-6 text-[#F2F2F2] cursor-pointer"
-            aria-label="Expandir"
-          >
-            <svg
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              class="faq-icon cursor-pointer transition-transform duration-300"
-            >
-              <path
-                d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"
-              ></path>
+          <button class="shrink-0 w-6 h-6 text-[#F2F2F2]" aria-label="Expandir">
+            <svg fill="currentColor" viewBox="0 0 24 24" class="faq-icon transition-transform duration-300">
+              <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
             </svg>
           </button>
         </div>
 
-        <p
-          class="faq-content max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out text-sm text-white/80 leading-normal pt-2"
-        >
+        <p class="faq-content max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out text-sm text-white/80 pt-2">
           Já nas primeiras semanas, com aplicações práticas no seu dia a dia.
         </p>
       </div>
 
       <!-- FAQ Item 3 -->
-      <div
-        class="faq-item relative flex flex-col gap-2 p-6 rounded-lg border border-white/12 bg-linear-to-r from-white/4 to-transparent transition-all duration-300 ease-out"
-      >
+      <div class="faq-item relative flex flex-col gap-2 p-6 rounded-lg border border-white/12 bg-linear-to-r from-white/4 to-transparent transition-all duration-300 ease-out">
         <div class="flex items-start justify-between cursor-pointer faq-trigger">
-          <h3
-            class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
-          >
+          <h3 class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight">
             É individual ou em grupo?
           </h3>
-          <button
-            class="shrink-0 w-6 h-6 text-[#F2F2F2] cursor-pointer"
-            aria-label="Expandir"
-          >
-            <svg
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              class="faq-icon cursor-pointer transition-transform duration-300"
-            >
-              <path
-                d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"
-              ></path>
+          <button class="shrink-0 w-6 h-6 text-[#F2F2F2]" aria-label="Expandir">
+            <svg fill="currentColor" viewBox="0 0 24 24" class="faq-icon transition-transform duration-300">
+              <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
             </svg>
           </button>
         </div>
 
-        <p
-          class="faq-content max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out text-sm text-white/80 leading-normal pt-2"
-        >
+        <p class="faq-content max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out text-sm text-white/80 pt-2">
           Individual, para respeitar seu contexto e seus objetivos.
         </p>
       </div>
@@ -126,15 +100,39 @@
   </div>
 </section>
 
+<style>
+  @keyframes faq-pulse {
+    0% {
+      opacity: 0.6;
+      transform: rotate(-45deg) scaleX(1);
+    }
+    50% {
+      opacity: 0.85;
+      transform: rotate(-45deg) scaleX(1.06);
+    }
+    100% {
+      opacity: 0.6;
+      transform: rotate(-45deg) scaleX(1);
+    }
+  }
+
+  .faq-beam {
+    animation: faq-pulse 7s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+</style>
+
+
 <script>
   const faqItems = document.querySelectorAll<HTMLElement>('[data-faq] .faq-item');
 
   faqItems.forEach((item) => {
     const trigger = item.querySelector<HTMLElement>('.faq-trigger');
     const content = item.querySelector<HTMLElement>('.faq-content');
-    const icon = item.querySelector<SVGSVGElement>('.faq-icon');
+    const iconPath = item.querySelector<SVGPathElement>('.faq-icon path');
 
-    if (!trigger || !content || !icon) return;
+    if (!trigger || !content || !iconPath) return;
 
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
@@ -149,15 +147,15 @@
           c.classList.add('opacity-0');
         }
 
-        const path = i.querySelector<SVGPathElement>('.faq-icon path');
-        if (path) {
-          path.setAttribute(
+        const p = i.querySelector<SVGPathElement>('.faq-icon path');
+        if (p) {
+          p.setAttribute(
             'd',
             'M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z'
           );
         }
 
-        const bar = i.querySelector('.faq-bar');
+        const bar = i.querySelector<HTMLElement>('.faq-bar');
         if (bar) bar.remove();
       });
 
@@ -168,10 +166,7 @@
         content.classList.remove('opacity-0');
         content.classList.add('opacity-100');
 
-        const path = icon.querySelector<SVGPathElement>('path');
-        if (path) {
-          path.setAttribute('d', 'M19 11H5V13H19V11Z');
-        }
+        iconPath.setAttribute('d', 'M19 11H5V13H19V11Z');
 
         const bar = document.createElement('div');
         bar.className =
@@ -187,4 +182,3 @@
     });
   });
 </script>
-
