@@ -12,6 +12,12 @@ import soundcloud from "../assets/soundcloud.svg";
     <div
       class="relative flex items-center justify-center rounded-3xl border border-white/12 bg-[#02142B] overflow-hidden min-h-[17.75rem]"
     >
+      <!-- <div
+        class="pointer-events-none absolute top-[-5.8125rem] left-1/2 -translate-x-1/2
+              w-[30.68rem] h-[10.05rem]
+              rounded-full bg-white opacity-100
+              blur-[33.7rem]"
+      ></div> -->
       <!-- Ondas de fundo -->
       <img
         src={sound.src}
@@ -39,28 +45,34 @@ import soundcloud from "../assets/soundcloud.svg";
         </h2>
 
         <!-- CTA -->
-        <button
-          class="relative flex items-center justify-center h-8 px-4 rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_0.125rem_0_0_rgba(255,255,255,0.12)] hover:brightness-110 transition-all overflow-hidden"
+        <a
+          href="https://soundcloud.com/samuel_santiago"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="relative flex items-center justify-center h-8 px-4 rounded-lg
+          bg-[#1169DB] text-white font-semibold text-xs
+          shadow-[inset_0_0.125rem_0_0_rgba(255,255,255,0.12)]
+          hover:brightness-110 transition-all overflow-hidden"
         >
           Começar a ouvir!
           <span
             class="absolute w-16 h-16 -right-[1.875rem] -bottom-[3.125rem] bg-white/60 blur-[2.125rem]"
           ></span>
-        </button>
+        </a>
       </div>
 
       <!-- CD ESQUERDO -->
       <div
         class="absolute left-16 inset-y-0 hidden lg:flex justify-center"
       >
-        <div class="relative">
+        <div class="relative w-[12rem]">
           <!-- Disco -->
-          <div class="relative w-[9.25rem] h-[9.25rem] animate-spin-slow z-10 mt-[4.5rem]">
+          <div class="absolute left-1/2 -translate-x-1/2 w-[9.5rem] h-[9.5rem] animate-spin-slow z-10 mt-[3.5rem]">
             <img src={cd.src} alt="" class="w-full h-full" />
             <img
               src={samucastCd.src}
               alt=""
-              class="absolute inset-0 m-auto w-[4.0625rem] h-[4.0625rem]"
+              class="absolute inset-0 m-auto w-[4.5rem] h-[4.5rem]"
             />
           </div>
 
@@ -68,7 +80,7 @@ import soundcloud from "../assets/soundcloud.svg";
           <img
             src={samucastEp.src}
             alt="SamuCast"
-            class="absolute left-1/2 -translate-x-1/2 bottom-[-1.125rem] w-[11rem] h-[11rem] rounded-2xl shadow-2xl z-20"
+            class="absolute left-1/2 -translate-x-1/2 bottom-[-1.125rem] w-[11.5rem] h-[11.5rem] rounded-2xl shadow-2xl z-20"
           />
         </div>
       </div>
@@ -77,14 +89,14 @@ import soundcloud from "../assets/soundcloud.svg";
       <div
         class="absolute right-16 inset-y-0 hidden lg:flex justify-center"
       >
-        <div class="relative">
+        <div class="relative w-[12rem]">
           <!-- Disco -->
-          <div class="relative w-[9.25rem] h-[9.25rem] animate-spin-slow z-10 mt-[4.5rem]">
+          <div class="absolute left-1/2 -translate-x-1/2 w-[9.5rem] h-[9.5rem] animate-spin-slow z-10 mt-[3.5rem]">
             <img src={cd.src} alt="" class="w-full h-full" />
             <img
               src={samucastCd.src}
               alt=""
-              class="absolute inset-0 m-auto w-[4.0625rem] h-[4.0625rem]"
+              class="absolute inset-0 m-auto w-[4.5rem] h-[4.5rem]"
             />
           </div>
 
@@ -92,7 +104,7 @@ import soundcloud from "../assets/soundcloud.svg";
           <img
             src={samucastEp.src}
             alt="SamuCast"
-            class="absolute left-1/2 -translate-x-1/2 bottom-[-1.125rem] w-[11rem] h-[11rem] rounded-2xl shadow-2xl z-20"
+            class="absolute left-1/2 -translate-x-1/2 bottom-[-1.125rem] w-[11.5rem] h-[11.5rem] rounded-2xl shadow-2xl z-20"
           />
         </div>
       </div>
