@@ -27,9 +27,7 @@ const carouselImages = [
       class="relative flex flex-col items-center gap-8 lg:gap-12 p-6 lg:px-20 lg:pt-20 lg:pb-10 rounded-2xl border border-white/12 bg-[#0A0A0A] overflow-hidden"
     >
       <!-- Decorative background -->
-      <div
-        class="absolute top-0 left-0 w-full h-auto pointer-events-none"
-      >
+      <div class="absolute top-0 left-0 w-full h-auto pointer-events-none">
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/2a819c25dc5d38d3f7ae2734f57b5f02ba3e2c12?width=2000"
           alt="Background decoration"
@@ -42,18 +40,14 @@ const carouselImages = [
         <h2
           class="text-4xl lg:text-[40px] font-semibold text-white font-outfit leading-tight max-w-[528px]"
         >
-          Quem sou eu?
+          Quem vai te guiar nessa jornada?
         </h2>
-        <p
-          class="text-sm text-white/80 font-medium leading-normal max-w-[340px]"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
       </div>
 
       <!-- Content Grid -->
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 w-full">
+      <div
+        class="relative z-10 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 w-full"
+      >
         <!-- Image -->
         <div
           class="rounded-2xl overflow-hidden w-full max-w-[320px] mx-auto lg:mx-0"
@@ -67,19 +61,22 @@ const carouselImages = [
 
         <!-- Text Content -->
         <div class="flex flex-col justify-center gap-6">
-          <p class="text-sm text-white/80 font-medium leading-normal">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          <p class="text-sm text-white/80 font-medium leading-[150%]">
+            Sou Samuel Santiago, Gestor de Projetos e Produtos, mentor e
+            palestrante, com mais de 15 anos de experiência liderando
+            iniciativas de tecnologia e inovação em empresas como Dell e HP.
             <br /><br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.
+            Ao longo da minha carreira, participei da entrega de mais de 37 softwares
+            em escala global, sempre conectando estratégia, pessoas e tecnologia
+            para gerar valor real.
             <br /><br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
+            Em 2025, vivi uma profunda transformação pessoal e espiritual ao voltar
+            para Deus. Isso mudou minha forma de liderar, trabalhar e servir. Hoje,
+            acredito que tecnologia só faz sentido quando melhora a vida das pessoas
+            — trazendo equilíbrio, eficiência e propósito.
+            <br /><br />
+            Essa mentoria nasce exatamente desse lugar:<br />
+            servir pessoas, gerar valor e usar tecnologia com consciência.
           </p>
 
           <!-- Signature -->
@@ -137,6 +134,22 @@ const carouselImages = [
     </div>
   </div>
 </section>
+
+<script>
+  const track = document.querySelector(
+    ".certifications-track"
+  ) as HTMLElement | null;
+
+  if (track) {
+    track.addEventListener("touchstart", () => {
+      track.style.animationPlayState = "paused";
+    });
+
+    track.addEventListener("touchend", () => {
+      track.style.animationPlayState = "running";
+    });
+  }
+</script>
 
 <style>
   @keyframes scroll {
