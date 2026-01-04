@@ -81,18 +81,17 @@
     content: '';
     position: absolute;
     right: 0;
-    top: 15%;
-    bottom: 15%;
-    width: 1px; /* Espessura da linha */
+    top: 10%;    /* Começa um pouco abaixo do topo */
+    bottom: 10%; /* Termina um pouco acima da base */
+    width: 1px;
     
-    /* O Gradiente: Transparente no topo -> Branco suave no meio -> Transparente no fundo */
+    /* Gradiente que desaparece nas pontas */
     background: linear-gradient(
       to bottom, 
       transparent 0%, 
-      rgba(255, 255, 255, 0.85) 50%, 
+      rgba(255, 255, 255, 0.827) 50%, 
       transparent 100%
     );
-    
-    pointer-events: none; 
+    pointer-events: none;
   }
 }
