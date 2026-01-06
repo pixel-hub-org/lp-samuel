@@ -2,10 +2,8 @@
 // src/components/Header.astro
 ---
 
-<header class="header-nav"
->
-  <nav class="header-nav-content"
-  >
+<header class="header-nav">
+  <nav class="header-nav-content">
     <!-- Desktop Navigation -->
     <div class="desktop-nav">
       <a href="#como-atuo" class="nav-link">Como atuo?</a>
@@ -44,7 +42,7 @@
     >
       Entrar em contato
       <div
-        class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
+        class="absolute size-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
       >
       </div>
     </a>
@@ -177,10 +175,35 @@
     mobileMenu?.classList.toggle("mobile-menu-open");
   });
 
-  // Close menu when clicking a link
+  // Smooth scroll to section
+  const handleSmoothScroll = (e: Event) => {
+    const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+    if (href?.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  };
+
+  // Add smooth scroll to desktop nav links
+  const desktopLinks = document.querySelectorAll(".desktop-nav a");
+  desktopLinks.forEach((link) => {
+    link.addEventListener("click", handleSmoothScroll);
+  });
+
+  // Add smooth scroll to mobile nav links
   const mobileLinks = mobileMenu?.querySelectorAll("a");
   mobileLinks?.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
+      handleSmoothScroll(e);
+      // Close menu when clicking a link
       mobileMenu?.classList.remove("mobile-menu-open");
       mobileMenu?.classList.add("mobile-menu-closed");
     });

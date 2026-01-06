@@ -1,6 +1,6 @@
 ---
 // Importa e ordena as imagens (samuel-1 até samuel-28)
-const images = (await Astro.glob('../assets/images/samuel-*.*')).sort(
+const images = (await Astro.glob("../assets/images/samuel-*.*")).sort(
   (a: any, b: any) => {
     const getIndex = (img: any) =>
       Number(img.default.src.match(/samuel-(\d+)/)[1]);
@@ -12,40 +12,39 @@ const images = (await Astro.glob('../assets/images/samuel-*.*')).sort(
 const getBadgeText = (index: number) => {
   const i = index + 1;
 
-  if (i >= 1 && i <= 6)
-    return '🚀 1º Agilizem Day Fortaleza';
+  if (i >= 1 && i <= 6) return "🚀 1º Agilizem Day Fortaleza";
 
-  if (i >= 7 && i <= 11)
-    return '📈 CGLP 2025';
+  if (i >= 7 && i <= 11) return "📈 CGLP 2025";
 
-  if (i >= 12 && i <= 15)
-    return '📚 VIII Encontros Acadêmicos';
+  if (i >= 12 && i <= 15) return "📚 VIII Encontros Acadêmicos";
 
-  if (i >= 16 && i <= 18)
-    return '🎯 FB Startup Day';
+  if (i >= 16 && i <= 18) return "🎯 FB Startup Day";
 
   if (i >= 19 && i <= 22)
-    return '🛠️ FLF - Treinamento Prático de Gestão de Projetos Ágeis';
+    return "🛠️ FLF - Treinamento Prático de Gestão de Projetos Ágeis";
 
   if (i >= 23 && i <= 27)
-    return '🌱 [PMI-CE] Roda de Conversa - Conexões que Transformam';
+    return "🌱 [PMI-CE] Roda de Conversa - Conexões que Transformam";
 
-  return '';
+  return "";
 };
 ---
 
 <section id="expertise" class="w-full py-20 overflow-hidden">
-  <div class="w-full">
-
+  <div class="w-full max-w-7xl mx-auto px-6 lg:px-24">
     <!-- Header -->
     <div class="flex flex-col items-center text-center gap-4 mb-12">
-      <div class="inline-flex px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent">
+      <div
+        class="inline-flex px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent"
+      >
         <span class="text-white text-xs font-medium leading-tight">
           ✨ Credibilidade e Expertise Comprovada
         </span>
       </div>
 
-      <h2 class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-outfit leading-tight max-w-md">
+      <h2
+        class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-outfit leading-tight max-w-md"
+      >
         Em quem você confia para aprender IA?
       </h2>
 
@@ -59,7 +58,6 @@ const getBadgeText = (index: number) => {
     <!-- Carousel -->
     <div class="relative w-full overflow-visible">
       <div class="carousel-stage relative mx-auto overflow-visible">
-
         <!-- Prev -->
         <button
           class="carousel-prev absolute top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
@@ -69,19 +67,21 @@ const getBadgeText = (index: number) => {
         </button>
 
         <!-- Track -->
-        <div class="carousel-track relative flex items-center justify-center h-[24rem] overflow-visible">
-          {images.map((image, index) => (
-            <div
-              class={`carousel-item ${index === 1 ? 'is-active' : ''}`}
-              data-index={index}
-            >
-              <img src={image.default.src} alt={`Imagem ${index + 1}`} />
+        <div
+          class="carousel-track relative flex items-center justify-center h-96 overflow-visible"
+        >
+          {
+            images.map((image, index) => (
+              <div
+                class={`carousel-item ${index === 1 ? "is-active" : ""}`}
+                data-index={index}
+              >
+                <img src={image.default.src} alt={`Imagem ${index + 1}`} />
 
-              <div class="badge">
-                {getBadgeText(index)}
+                <div class="badge">{getBadgeText(index)}</div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
 
         <!-- Next -->
@@ -161,7 +161,10 @@ const getBadgeText = (index: number) => {
       border: 0.0625rem solid rgba(255, 255, 255, 0.12);
       opacity: 0.45;
       transform: scale(0.85) translateY(2rem);
-      transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+      transition:
+        transform 0.5s ease,
+        opacity 0.5s ease,
+        z-index 0.5s ease;
       z-index: 10;
       will-change: transform;
     }
@@ -180,13 +183,11 @@ const getBadgeText = (index: number) => {
 
     .carousel-item.is-left {
       transform: translateX(calc(-1 * var(--side-offset)))
-        scale(var(--side-scale))
-        translateY(2.25rem);
+        scale(var(--side-scale)) translateY(2.25rem);
     }
 
     .carousel-item.is-right {
-      transform: translateX(var(--side-offset))
-        scale(var(--side-scale))
+      transform: translateX(var(--side-offset)) scale(var(--side-scale))
         translateY(2.25rem);
     }
 
@@ -216,22 +217,22 @@ const getBadgeText = (index: number) => {
 
   <!-- Script -->
   <script type="module">
-    const items = Array.from(document.querySelectorAll('.carousel-item'));
-    const track = document.querySelector('.carousel-track');
-    const prev = document.querySelector('.carousel-prev');
-    const next = document.querySelector('.carousel-next');
+    const items = Array.from(document.querySelectorAll(".carousel-item"));
+    const track = document.querySelector(".carousel-track");
+    const prev = document.querySelector(".carousel-prev");
+    const next = document.querySelector(".carousel-next");
 
     let active = 1;
 
     function render() {
       items.forEach((item, index) => {
-        item.classList.remove('is-active', 'is-left', 'is-right');
+        item.classList.remove("is-active", "is-left", "is-right");
 
         const offset = (index - active + items.length) % items.length;
 
-        if (offset === 0) item.classList.add('is-active');
-        if (offset === items.length - 1) item.classList.add('is-left');
-        if (offset === 1) item.classList.add('is-right');
+        if (offset === 0) item.classList.add("is-active");
+        if (offset === items.length - 1) item.classList.add("is-left");
+        if (offset === 1) item.classList.add("is-right");
       });
     }
 
@@ -245,8 +246,8 @@ const getBadgeText = (index: number) => {
       render();
     }
 
-    prev?.addEventListener('click', goPrev);
-    next?.addEventListener('click', goNext);
+    prev?.addEventListener("click", goPrev);
+    next?.addEventListener("click", goNext);
 
     // Swipe / Drag
     let startX = 0;
@@ -254,15 +255,13 @@ const getBadgeText = (index: number) => {
 
     function onStart(e) {
       isDragging = true;
-      startX = e.type.includes('mouse')
-        ? e.clientX
-        : e.touches[0].clientX;
+      startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
     }
 
     function onEnd(e) {
       if (!isDragging) return;
 
-      const endX = e.type.includes('mouse')
+      const endX = e.type.includes("mouse")
         ? e.clientX
         : e.changedTouches[0].clientX;
 
@@ -275,11 +274,11 @@ const getBadgeText = (index: number) => {
       isDragging = false;
     }
 
-    track.addEventListener('touchstart', onStart, { passive: true });
-    track.addEventListener('touchend', onEnd);
-    track.addEventListener('mousedown', onStart);
-    track.addEventListener('mouseup', onEnd);
-    track.addEventListener('mouseleave', () => (isDragging = false));
+    track.addEventListener("touchstart", onStart, { passive: true });
+    track.addEventListener("touchend", onEnd);
+    track.addEventListener("mousedown", onStart);
+    track.addEventListener("mouseup", onEnd);
+    track.addEventListener("mouseleave", () => (isDragging = false));
 
     render();
   </script>

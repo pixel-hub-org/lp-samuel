@@ -7,14 +7,19 @@ import "../styles/tokens/pricing-effects.css";
 <section id="sobre-mentoria" class="w-full py-20">
   <div class="max-w-7xl mx-auto px-6 lg:px-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-      
-      <div class="flex flex-col gap-8 items-center text-center lg:items-start lg:text-left">
-        
-        <div class="flex flex-col gap-4 items-center lg:items-start w-full max-w-2xl mx-auto lg:mx-0 lg:max-w-none">
+      <div
+        class="flex flex-col gap-8 items-center text-center lg:items-start lg:text-left"
+      >
+        <div
+          class="flex flex-col gap-4 items-center lg:items-start w-full max-w-2xl mx-auto lg:mx-0 lg:max-w-none"
+        >
           <div
             class="inline-flex px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent items-center gap-2"
           >
-            <div class="w-1.5 h-1.5 rounded-full bg-[#FF4F4F] shadow-[0_0_8px_#FF4F4F]"></div>
+            <div
+              class="w-1.5 h-1.5 rounded-full bg-[#FF4F4F] shadow-[0_0_8px_#FF4F4F]"
+            >
+            </div>
             <span class="text-white text-xs font-medium leading-tight">
               Comece a Gerar Valor
             </span>
@@ -27,85 +32,109 @@ import "../styles/tokens/pricing-effects.css";
           </h2>
 
           <p class="text-sm text-[#DADADA] leading-relaxed">
-            A Mentoria "Do Zero ao Valor" foi criada para profissionais, líderes e empreendedores que: Não têm base técnica em IA; Querem usar IA no seu contexto real de trabalho; Buscam eficiência, clareza e diferenciação profissional; Desejam resultados práticos e não apenas teoria.
+            A Mentoria "Do Zero ao Valor" foi criada para profissionais, líderes
+            e empreendedores que: Não têm base técnica em IA; Querem usar IA no
+            seu contexto real de trabalho; Buscam eficiência, clareza e
+            diferenciação profissional; Desejam resultados práticos e não apenas
+            teoria.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 w-full max-w-2xl mx-auto lg:mx-0 lg:max-w-none">
-          
-          <div class="flex flex-col gap-3 w-full max-w-[360px] mx-auto md:mx-auto lg:mx-0">
-            
-            <h3 class="text-white font-semibold text-base text-center md:text-left">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 w-full max-w-2xl mx-auto lg:mx-0 lg:max-w-none"
+        >
+          <div
+            class="flex flex-col gap-3 w-full max-w-[360px] mx-auto md:mx-auto lg:mx-0"
+          >
+            <h3
+              class="text-white font-semibold text-base text-center md:text-left"
+            >
               Não achou o que queria na internet?
             </h3>
 
             <ul class="flex flex-col gap-2">
-              {[
-                "Cursos genéricos",
-                "Conteúdo técnico demais",
-                "Ferramentas sem contexto",
-                "Teoria sem aplicação",
-                "Você aprende sozinho"
-              ].map((item) => (
-                /* ALTERAÇÃO AQUI:
+              {
+                [
+                  "Cursos genéricos",
+                  "Conteúdo técnico demais",
+                  "Ferramentas sem contexto",
+                  "Teoria sem aplicação",
+                  "Você aprende sozinho",
+                ].map((item) => (
+                  /* ALTERAÇÃO AQUI:
                    - justify-center text-center: Centraliza no Mobile.
                    - md:justify-start md:text-left: Alinha à esquerda no Tablet/Desktop.
                 */
-                <li class="flex items-start gap-3 text-sm text-[#DADADA]/80 justify-center text-center md:justify-start md:text-left">
-                  <div class="w-4 h-4 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-full h-full" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z" fill="#FF4F4F"/>
-                    </svg>
-                  </div>
-                  <span>{item}</span>
-                </li>
-              ))}
+                  <li class="flex items-start gap-3 text-sm text-[#DADADA]/80 justify-center text-center md:justify-start md:text-left">
+                    <div class="w-4 h-4 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        class="w-full h-full"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                          fill="#FF4F4F"
+                        />
+                      </svg>
+                    </div>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
-          <div class="flex flex-col gap-3 w-full max-w-[360px] mx-auto md:mx-auto lg:mx-0">
-            
-            <h3 class="text-white font-semibold text-base text-center md:text-left">
+          <div
+            class="flex flex-col gap-3 w-full max-w-[360px] mx-auto md:mx-auto lg:mx-0"
+          >
+            <h3
+              class="text-white font-semibold text-base text-center md:text-left"
+            >
               Não se preocupe, aqui é de verdade:
             </h3>
 
             <ul class="flex flex-col gap-2">
-              {[
-                "Mentoria individual",
-                "Aplicação prática no seu contexto",
-                "IA integrada à sua rotina real",
-                "Entrega de valor desde a primeira semana"
-              ].map((item) => (
-                /* ALTERAÇÃO AQUI:
+              {
+                [
+                  "Mentoria individual",
+                  "Aplicação prática no seu contexto",
+                  "IA integrada à sua rotina real",
+                  "Entrega de valor desde a primeira semana",
+                ].map((item) => (
+                  /* ALTERAÇÃO AQUI:
                    Mesma lógica: justify-center text-center no mobile.
                 */
-                <li class="flex items-start gap-3 text-sm text-[#DADADA] justify-center text-center md:justify-start md:text-left">
-                  
-                  <svg class="w-5 h-5 shrink-0 mt-0.5" fill="#19DC71" viewBox="0 0 20 20">
-                    <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z"></path>
-                  </svg>
+                  <li class="flex items-start gap-3 text-sm text-[#DADADA] justify-center text-center md:justify-start md:text-left">
+                    <svg
+                      class="w-5 h-5 shrink-0 mt-0.5"
+                      fill="#19DC71"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z" />
+                    </svg>
 
-                  <span>{item}</span>
-                </li>
-              ))}
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
             </ul>
           </div>
-
         </div>
-
       </div>
 
       <div class="flex justify-center lg:justify-end lg:sticky lg:top-16 h-fit">
-        
         <div class="pricing-glass-card">
-            
           <div class="pricing-top-glow"></div>
 
           <div class="pricing-badge">
             <span>VAGAS LIMITADAS</span>
           </div>
 
-          <div class="relative flex flex-col gap-0 items-center text-center mt-2">
+          <div
+            class="relative flex flex-col gap-0 items-center text-center mt-2"
+          >
             <h3
               class="text-3xl lg:text-4xl font-semibold text-[#F2F2F2] font-outfit leading-tight"
             >
@@ -119,22 +148,28 @@ import "../styles/tokens/pricing-effects.css";
           <div class="w-full h-px bg-white/10 my-4"></div>
 
           <div class="flex flex-col gap-2">
-            {[
-              "Encontros individuais ao vivo.",
-              "Aplicação prática no seu contexto.",
-              "Acompanhamento e direcionamento.",
-              "Plano de ação personalizado.",
-              "Conversa inicial sem compromisso!"
-            ].map((item) => (
-              <div class="flex items-start gap-3 py-1">
-                 <svg class="w-5 h-5 shrink-0 mt-0.5" fill="#22FF7E" viewBox="0 0 20 20">
-                  <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z"></path>
-                </svg>
-                <p class="text-sm font-medium leading-tight text-left text-[#DADADA]">
-                  {item}
-                </p>
-              </div>
-            ))}
+            {
+              [
+                "Encontros individuais ao vivo.",
+                "Aplicação prática no seu contexto.",
+                "Acompanhamento e direcionamento.",
+                "Plano de ação personalizado.",
+                "Conversa inicial sem compromisso!",
+              ].map((item) => (
+                <div class="flex items-start gap-3 py-1">
+                  <svg
+                    class="w-5 h-5 shrink-0 mt-0.5"
+                    fill="#22FF7E"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M8.33309 12.6425L15.9934 4.98218L17.1719 6.16069L8.33309 14.9995L3.02979 9.69624L4.2083 8.51774L8.33309 12.6425Z" />
+                  </svg>
+                  <p class="text-sm font-medium leading-tight text-left text-[#DADADA]">
+                    {item}
+                  </p>
+                </div>
+              ))
+            }
           </div>
 
           <div class="relative group mt-6">
@@ -146,85 +181,167 @@ import "../styles/tokens/pricing-effects.css";
               <div
                 class="relative h-full w-full bg-[#0a0a0a] rounded-[12px] p-[4px]"
               >
-                <button
-                  class="relative w-full h-11 px-4 flex items-center justify-center rounded-[8px] bg-[#1169DB] hover:bg-blue-600 transition-all shadow-[0_0_20px_rgba(17,105,219,0.3)] hover:shadow-[0_0_30px_rgba(17,105,219,0.5)] text-white font-semibold text-sm overflow-hidden cursor-pointer"
+                <a
+                  href="https://pay.kiwify.com.br/EaY2UdZ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="relative w-full h-11 px-4 flex items-center justify-center rounded-[8px] bg-[#1169DB] hover:bg-blue-600 transition-all shadow-[0_0_20px_rgba(17,105,219,0.3)] hover:shadow-[0_0_30px_rgba(17,105,219,0.5)] text-white font-semibold text-sm overflow-hidden"
                 >
-                  <span class="relative z-10">Quero aplicar IA com valor real</span>
-                </button>
+                  <span class="relative z-10"
+                    >Quero aplicar IA com valor real</span
+                  >
+                </a>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
 
     <div class="flex flex-col gap-0 mt-20 w-full">
-      
       <div class="grid grid-cols-1 md:grid-cols-3 w-full">
-        
-        <div class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0 gradient-separator-right">
-          <div class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]">
-            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div
+          class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0 gradient-separator-right"
+        >
+          <div
+            class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]"
+          >
+            <svg
+              width="10"
+              height="8"
+              viewBox="0 0 10 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 4L3.5 6.5L9 1"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="text-base font-medium text-white font-outfit leading-tight max-w-[200px]">
+          <h3
+            class="text-base font-medium text-white font-outfit leading-tight max-w-[200px]"
+          >
             Diferenciação profissional no mercado.
           </h3>
         </div>
 
-        <div class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0 gradient-separator-right">
-          <div class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]">
-            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div
+          class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0 gradient-separator-right"
+        >
+          <div
+            class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]"
+          >
+            <svg
+              width="10"
+              height="8"
+              viewBox="0 0 10 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 4L3.5 6.5L9 1"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="text-base font-medium text-white font-outfit leading-tight max-w-[200px]">
+          <h3
+            class="text-base font-medium text-white font-outfit leading-tight max-w-[200px]"
+          >
             Aumento real de produtividade
           </h3>
         </div>
 
-        <div class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0">
-          <div class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]">
-            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div
+          class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0"
+        >
+          <div
+            class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]"
+          >
+            <svg
+              width="10"
+              height="8"
+              viewBox="0 0 10 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 4L3.5 6.5L9 1"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="text-base font-medium text-white font-outfit leading-tight max-w-[200px]">
+          <h3
+            class="text-base font-medium text-white font-outfit leading-tight max-w-[200px]"
+          >
             Processos mais simples e eficientes
           </h3>
         </div>
-
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full max-w-4xl mx-auto md:border-t md:border-white/5">
-        
-        <div class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0 gradient-separator-right">
-          <div class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]">
-            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 w-full max-w-4xl mx-auto md:border-t md:border-white/5"
+      >
+        <div
+          class="flex flex-col items-center text-center gap-4 p-8 border-b border-white/10 md:border-b-0 gradient-separator-right"
+        >
+          <div
+            class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]"
+          >
+            <svg
+              width="10"
+              height="8"
+              viewBox="0 0 10 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 4L3.5 6.5L9 1"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="text-base font-medium text-white font-outfit leading-tight max-w-[220px]">
+          <h3
+            class="text-base font-medium text-white font-outfit leading-tight max-w-[220px]"
+          >
             Segurança para aplicar IA com ética e estratégica
           </h3>
         </div>
 
         <div class="flex flex-col items-center text-center gap-4 p-8">
-          <div class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]">
-            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <div
+            class="w-6 h-6 rounded-full bg-[#1169DB] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(17,105,219,0.4)]"
+          >
+            <svg
+              width="10"
+              height="8"
+              viewBox="0 0 10 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 4L3.5 6.5L9 1"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="text-base font-medium text-white font-outfit leading-tight max-w-[220px]">
+          <h3
+            class="text-base font-medium text-white font-outfit leading-tight max-w-[220px]"
+          >
             Clareza sobre como usar IA no seu dia a dia.
           </h3>
         </div>
-
       </div>
-
     </div>
   </div>
 </section>
