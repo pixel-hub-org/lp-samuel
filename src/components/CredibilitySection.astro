@@ -1,9 +1,37 @@
 ---
-// src/components/CredibilitySection.astro
+// Importa e ordena as imagens (samuel-1 até samuel-28)
+const images = (await Astro.glob("../assets/images/samuel-*.*")).sort(
+  (a: any, b: any) => {
+    const getIndex = (img: any) =>
+      Number(img.default.src.match(/samuel-(\d+)/)[1]);
+    return getIndex(a) - getIndex(b);
+  }
+);
+
+// Resolve a legenda com base no índice da imagem
+const getBadgeText = (index: number) => {
+  const i = index + 1;
+
+  if (i >= 1 && i <= 6) return "🚀 1º Agilizem Day Fortaleza";
+
+  if (i >= 7 && i <= 11) return "📈 CGLP 2025";
+
+  if (i >= 12 && i <= 15) return "📚 VIII Encontros Acadêmicos";
+
+  if (i >= 16 && i <= 18) return "🎯 FB Startup Day";
+
+  if (i >= 19 && i <= 22)
+    return "🛠️ FLF - Treinamento Prático de Gestão de Projetos Ágeis";
+
+  if (i >= 23 && i <= 27)
+    return "🌱 [PMI-CE] Roda de Conversa - Conexões que Transformam";
+
+  return "";
+};
 ---
 
-<section id="expertise" class="w-full py-20">
-  <div class="max-w-7xl mx-auto px-6 lg:px-24">
+<section id="expertise" class="w-full py-20 overflow-hidden">
+  <div class="w-full max-w-7xl mx-auto px-6 lg:px-24">
     <!-- Header -->
     <div class="flex flex-col items-center text-center gap-4 mb-12">
       <div
@@ -21,55 +49,237 @@
       </h2>
 
       <p class="text-sm text-white/80 leading-normal max-w-lg">
-        Com +15 anos de experiência e reconhecido por liderar a inovação em
-        empresas como DELL e HP, Samuel Santiago não apenas fala sobre
-        transformação digital; ele a entrega.
+        Com +15 anos de experiência e reconhecido por liderar a <br />
+        inovação em empresas como DELL e HP, Samuel Santiago não <br />
+        apenas fala sobre transformação digital; ele a entrega.
       </p>
     </div>
 
-    <!-- Images Grid -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[315px_1fr_314px] gap-8 items-center justify-center"
-    >
-      <!-- Image 1 -->
-      <div
-        class="relative rounded-2xl border border-white/12 overflow-hidden aspect-[105/59 w-full max-w-[315px] mx-auto"
-      >
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/80964814333e6d3472729be00641c7add92ae881?width=630"
-          alt="Evento 1"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
-      <!-- Center Image with Badge -->
-      <div
-        class="relative rounded-2xl border border-white/12 overflow-hidden aspect-105/59 w-full max-w-[630px] mx-auto"
-      >
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/d697105e82a8a0b1948cfcb6665b6ce67ce48909?width=1260"
-          alt="Encontros Acadêmicos - FLF 2025"
-          class="w-full h-full object-cover"
-        />
-        <div
-          class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full border border-white/12 bg-linear-to-r from-white/4 to-transparent backdrop-blur-sm"
+    <!-- Carousel -->
+    <div class="relative w-full overflow-visible">
+      <div class="carousel-stage relative mx-auto overflow-visible">
+        <!-- Prev -->
+        <button
+          class="carousel-prev absolute top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+          aria-label="Anterior"
         >
-          <span class="text-white text-xs font-medium leading-tight">
-            💡 Encontros Acadêmicos - FLF 2025
-          </span>
-        </div>
-      </div>
+          <i class="ri-arrow-left-line text-white text-3xl"></i>
+        </button>
 
-      <!-- Image 3 -->
-      <div
-        class="relative rounded-2xl border border-white/12 overflow-hidden aspect-314/177 w-full max-w-[314px] mx-auto"
-      >
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/b2b37aadd4c538694926b139b4ebc6a2da8b34de?width=628"
-          alt="Evento 3"
-          class="w-full h-full object-cover"
-        />
+        <!-- Track -->
+        <div
+          class="carousel-track relative flex items-center justify-center h-96 overflow-visible"
+        >
+          {
+            images.map((image, index) => (
+              <div
+                class={`carousel-item ${index === 1 ? "is-active" : ""}`}
+                data-index={index}
+              >
+                <img src={image.default.src} alt={`Imagem ${index + 1}`} />
+
+                <div class="badge">{getBadgeText(index)}</div>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Next -->
+        <button
+          class="carousel-next absolute top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+          aria-label="Próximo"
+        >
+          <i class="ri-arrow-right-line text-white text-3xl"></i>
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- Styles -->
+  <style>
+    :root {
+      /* Desktop */
+      --slide-width: 39.375rem;
+      --side-offset: 34rem;
+      --side-scale: 0.55;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      :root {
+        --slide-width: 30rem;
+        --side-offset: 22rem;
+        --side-scale: 0.45;
+      }
+
+      .carousel-prev,
+      .carousel-next {
+        display: none;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      :root {
+        --slide-width: 22rem;
+        --side-offset: 16rem; /* laterais bem cortadas */
+        --side-scale: 0.42;
+      }
+    }
+
+    .carousel-stage {
+      width: var(--slide-width);
+    }
+
+    .carousel-prev {
+      left: -2.5rem;
+      cursor: pointer;
+    }
+
+    .carousel-next {
+      right: -2.5rem;
+      cursor: pointer;
+    }
+
+    .carousel-track {
+      perspective: 75rem;
+      touch-action: pan-y;
+      user-select: none;
+      cursor: grab;
+    }
+
+    .carousel-track:active {
+      cursor: grabbing;
+    }
+
+    .carousel-item {
+      position: absolute;
+      width: var(--slide-width);
+      height: 22.125rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+      opacity: 0.45;
+      transform: scale(0.85) translateY(2rem);
+      transition:
+        transform 0.5s ease,
+        opacity 0.5s ease,
+        z-index 0.5s ease;
+      z-index: 10;
+      will-change: transform;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-item.is-active {
+      transform: scale(1.05);
+      opacity: 1;
+      z-index: 20;
+    }
+
+    .carousel-item.is-left {
+      transform: translateX(calc(-1 * var(--side-offset)))
+        scale(var(--side-scale)) translateY(2.25rem);
+    }
+
+    .carousel-item.is-right {
+      transform: translateX(var(--side-offset)) scale(var(--side-scale))
+        translateY(2.25rem);
+    }
+
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      line-height: 1.2;
+      text-align: center;
+      color: white;
+      max-width: calc(100% - 2rem);
+      white-space: normal;
+      word-break: break-word;
+      border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.02)
+      );
+      backdrop-filter: blur(0.375rem);
+    }
+  </style>
+
+  <!-- Script -->
+  <script type="module">
+    const items = Array.from(document.querySelectorAll(".carousel-item"));
+    const track = document.querySelector(".carousel-track");
+    const prev = document.querySelector(".carousel-prev");
+    const next = document.querySelector(".carousel-next");
+
+    let active = 1;
+
+    function render() {
+      items.forEach((item, index) => {
+        item.classList.remove("is-active", "is-left", "is-right");
+
+        const offset = (index - active + items.length) % items.length;
+
+        if (offset === 0) item.classList.add("is-active");
+        if (offset === items.length - 1) item.classList.add("is-left");
+        if (offset === 1) item.classList.add("is-right");
+      });
+    }
+
+    function goNext() {
+      active = (active + 1) % items.length;
+      render();
+    }
+
+    function goPrev() {
+      active = (active - 1 + items.length) % items.length;
+      render();
+    }
+
+    prev?.addEventListener("click", goPrev);
+    next?.addEventListener("click", goNext);
+
+    // Swipe / Drag
+    let startX = 0;
+    let isDragging = false;
+
+    function onStart(e) {
+      isDragging = true;
+      startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+    }
+
+    function onEnd(e) {
+      if (!isDragging) return;
+
+      const endX = e.type.includes("mouse")
+        ? e.clientX
+        : e.changedTouches[0].clientX;
+
+      const deltaX = endX - startX;
+
+      if (Math.abs(deltaX) > 50) {
+        deltaX < 0 ? goNext() : goPrev();
+      }
+
+      isDragging = false;
+    }
+
+    track.addEventListener("touchstart", onStart, { passive: true });
+    track.addEventListener("touchend", onEnd);
+    track.addEventListener("mousedown", onStart);
+    track.addEventListener("mouseup", onEnd);
+    track.addEventListener("mouseleave", () => (isDragging = false));
+
+    render();
+  </script>
 </section>

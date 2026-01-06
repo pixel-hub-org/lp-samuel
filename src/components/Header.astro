@@ -2,10 +2,8 @@
 // src/components/Header.astro
 ---
 
-<header class="header-nav"
->
-  <nav class="header-nav-content"
-  >
+<header class="header-nav">
+  <nav class="header-nav-content">
     <!-- Desktop Navigation -->
     <div class="desktop-nav">
       <a href="#como-atuo" class="nav-link">Como atuo?</a>
@@ -36,18 +34,24 @@
     </button>
 
     <!-- CTA Button -->
-    <button
+    <a
+      href="https://wa.me/5588996297618"
+      target="_blank"
+      rel="noopener noreferrer"
       class="relative hidden md:flex h-8 px-6 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] hover:shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12),0_4px_8px_rgba(17,105,219,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all overflow-hidden"
     >
       Entrar em contato
       <div
-        class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
+        class="absolute size-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
       >
       </div>
-    </button>
+    </a>
 
     <!-- Mobile CTA -->
-    <button
+    <a
+      href="https://wa.me/5588996297618"
+      target="_blank"
+      rel="noopener noreferrer"
       class="md:hidden relative flex h-8 px-4 justify-center items-center rounded-lg bg-[#1169DB] text-white font-semibold text-xs shadow-[inset_0_2px_0_0_rgba(255,255,255,0.12)] overflow-hidden"
     >
       Contato
@@ -55,7 +59,7 @@
         class="absolute w-12 h-12 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 blur-2xl pointer-events-none"
       >
       </div>
-    </button>
+    </a>
   </nav>
 
   <!-- Mobile Menu -->
@@ -171,10 +175,35 @@
     mobileMenu?.classList.toggle("mobile-menu-open");
   });
 
-  // Close menu when clicking a link
+  // Smooth scroll to section
+  const handleSmoothScroll = (e: Event) => {
+    const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+    if (href?.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  };
+
+  // Add smooth scroll to desktop nav links
+  const desktopLinks = document.querySelectorAll(".desktop-nav a");
+  desktopLinks.forEach((link) => {
+    link.addEventListener("click", handleSmoothScroll);
+  });
+
+  // Add smooth scroll to mobile nav links
   const mobileLinks = mobileMenu?.querySelectorAll("a");
   mobileLinks?.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
+      handleSmoothScroll(e);
+      // Close menu when clicking a link
       mobileMenu?.classList.remove("mobile-menu-open");
       mobileMenu?.classList.add("mobile-menu-closed");
     });
