@@ -12,17 +12,18 @@ import soundcloud from "../assets/soundcloud.svg";
     <div
       class="relative flex items-center justify-center rounded-3xl border border-white/12 bg-[#02142B] overflow-hidden md:min-h-[17.75rem] min-h-[24rem]"
     >
-      <!-- <div
-        class="pointer-events-none absolute top-[-5.8125rem] left-1/2 -translate-x-1/2
-              w-[30.68rem] h-[10.05rem]
-              rounded-full bg-white opacity-100
-              blur-[33.7rem]"
-      ></div> -->
+<div
+        class="pointer-events-none absolute top-[-5rem] left-1/2 -translate-x-1/2
+               w-[45rem] h-[15rem]
+               opacity-80
+               blur-[4rem]"
+        style="background: radial-gradient(ellipse at top, white,  #0080ffa4, transparent);"
+      ></div>
       <!-- Ondas de fundo -->
       <img
         src={sound.src}
         alt=""
-        class="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+        class="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none"
       />
 
       <!-- Conteúdo central -->
@@ -31,7 +32,7 @@ import soundcloud from "../assets/soundcloud.svg";
       >
         <!-- Badge -->
         <div
-          class="flex items-center gap-2 px-4 py-1 rounded-full border border-white bg-white/8"
+          class="flex items-center gap-2 px-4 py-1 rounded-full border border-white/12 bg-white/8"
         >
           <img src={soundcloud.src} alt="SoundCloud" class="w-4 h-4" />
           <span class="text-[#F2F2F2] text-[0.8125rem] font-medium">
