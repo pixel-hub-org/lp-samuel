@@ -35,8 +35,8 @@ const getBadgeText = (index: number) => {
         Em quem você confia para aprender IA?
       </h2>
       <p class="text-sm text-white/80 leading-normal max-w-lg">
-        Com +15 anos de experiência e reconhecido por liderar a <br />
-        inovação em empresas como DELL e HP, Samuel Santiago não <br />
+        Com +15 anos de experiência e reconhecido por liderar a <br class="hidden sm:block" />
+        inovação em empresas como DELL e HP, Samuel Santiago não <br class="hidden sm:block" /> 
         apenas fala sobre transformação digital; ele a entrega.
       </p>
     </div>
@@ -92,6 +92,14 @@ const getBadgeText = (index: number) => {
         --scale-1: 0.45;
       }
       .carousel-prev, .carousel-next { display: none; }
+
+      .badge {
+        top: auto !important;    /* Remove a posição do topo */
+        bottom: 1rem;          /* Fixa na parte de baixo */
+        font-size:0.8rem !important; /* Texto menor */
+        padding: 0.4rem 0.8rem !important; /* Badge mais compacta */
+        max-width: 85% !important; /* Garante margem nas laterais */
+      }
     }
 
     /* --- MOBILE (Ajuste para slide lateral e Badge) --- */
