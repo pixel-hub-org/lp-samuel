@@ -1,5 +1,12 @@
 ---
 // src/components/DNASection.astro
+
+// 1. IMPORTAR AS IMAGENS AQUI
+import ellipse4 from "../assets/Ellipse_4.jpg";
+import ellipse2 from "../assets/Ellipse_2.jpg";
+import ellipse3 from "../assets/Ellipse_3.jpg";
+import largeComet from "../assets/large-comet.svg";
+import largeComet1 from "../assets/large-comet-1.svg";
 ---
 
 <script>
@@ -26,7 +33,6 @@
           if (index === currentIndex) {
             highlightedClasses.forEach((cls) => main.classList.add(cls));
             main.classList.add("is-active");
-            // Ensure border stays blue during transition
             if (main instanceof HTMLElement) {
               main.style.borderLeftColor = "#4489E3";
               main.style.borderLeftWidth = "4px";
@@ -34,7 +40,6 @@
           } else {
             highlightedClasses.forEach((cls) => main.classList.remove(cls));
             main.classList.remove("is-active");
-            // Avoid white border flicker when deactivating
             if (main instanceof HTMLElement) {
               main.style.borderLeftColor = "transparent";
               main.style.borderLeftWidth = "0px";
@@ -44,12 +49,10 @@
 
         if (icon) {
           if (index === currentIndex) {
-            // make icon blue
             iconDefault.forEach((c) => icon.classList.remove(c));
             iconHighlighted.forEach((c) => icon.classList.add(c));
             icon.classList.add("is-active");
           } else {
-            // reset to default gray
             iconHighlighted.forEach((c) => icon.classList.remove(c));
             iconDefault.forEach((c) => icon.classList.add(c));
             icon.classList.remove("is-active");
@@ -61,7 +64,6 @@
     };
 
     updateHighlight();
-    // Slow down rotation for a more relaxed feel
     setInterval(updateHighlight, 8000);
   }
 
@@ -145,14 +147,12 @@
     pointer-events: none;
   }
 
-  /* Smooth transitions for feature cards and icons */
   [data-feature] > div {
     transition:
       background-color 900ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 800ms cubic-bezier(0.4, 0, 0.2, 1),
       transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
     will-change: background-color, box-shadow, transform;
-    /* Baseline to prevent white line flicker, border changes are instant */
     border-left-style: solid;
     border-left-color: transparent;
     border-left-width: 0;
@@ -163,7 +163,6 @@
       inset 0 0 0 1px rgba(255, 255, 255, 0.04),
       0 0 24px rgba(68, 137, 227, 0.12);
     transform: translateX(0);
-    /* Explicit active border — applied instantly */
     border-left-color: #4489e3;
     border-left-width: 4px;
   }
@@ -174,7 +173,7 @@
       border-color 600ms cubic-bezier(0.4, 0, 0.2, 1),
       transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 600ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 30ms; /* small cascade after card */
+    transition-delay: 30ms;
     will-change: background-color, border-color, transform, box-shadow;
   }
 
@@ -183,7 +182,6 @@
     box-shadow: 0 0 0 5px rgba(68, 137, 227, 0.1);
   }
 
-  /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     [data-feature] > div,
     [data-feature] [data-icon] {
@@ -196,12 +194,10 @@
       width: 80vw;
       height: 80vw;
     }
-
     .comet-1 {
       left: -35%;
       bottom: -40%;
     }
-
     .comet-2 {
       left: -45%;
       bottom: -40%;
@@ -213,12 +209,10 @@
       width: 100vw;
       height: 100vw;
     }
-
     .comet-1 {
       left: -50%;
       bottom: -50%;
     }
-
     .comet-2 {
       left: -60%;
       bottom: -50%;
@@ -233,18 +227,19 @@
 >
   <div class="comet-container comet-1">
     <img
-      src="/src/assets/large-comet.svg"
+      src={largeComet.src}
       alt="feixe azul"
       style="width:100%; height:100%; object-fit:cover;"
     />
   </div>
   <div class="comet-container comet-2">
     <img
-      src="/src/assets/large-comet-1.svg"
+      src={largeComet1.src}
       alt="feixe azul"
       style="width:100%; height:100%; object-fit:cover;"
     />
   </div>
+
   <div class="max-w-7xl mx-auto px-6 lg:px-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
       
@@ -301,27 +296,27 @@
               <div class="flex -space-x-3">
                 <div class="w-6 h-6 rounded-full border border-white/12">
                   <img
-                    src="/src/assets/Ellipse_4.jpg"
+                    src={ellipse4.src}
                     alt="Depoimento 1"
                     class="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 <div class="w-6 h-6 rounded-full border border-white/12">
                   <img
-                    src="/src/assets/Ellipse_2.jpg"
+                    src={ellipse2.src}
                     alt="Depoimento 2"
                     class="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 <div class="w-6 h-6 rounded-full border border-white/12">
                   <img
-                    src="/src/assets/Ellipse_3.jpg"
+                    src={ellipse3.src}
                     alt="Depoimento 3"
                     class="w-full h-full object-cover rounded-full"
                   />
                 </div>
               </div>
-<a
+              <a
                 href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTMzMjkyNDgyODE0MTg4?story_media_id=3309821443917711819&igsh=MTgza3ZqbG9xaTV3ZQ=="
                 target="_blank"
                 rel="noopener noreferrer"
@@ -347,7 +342,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-0 sm:px-12">
+      <div class="flex flex-col gap-0  lg:px-0 md:px-20">
         <div data-feature="1">
           <div
             class="flex flex-col gap-2 p-6 rounded-r-lg bg-linear-to-r from-white/4 to-transparent border-l-4 border-[#4489E3]"
@@ -368,7 +363,7 @@
                 </svg>
               </div>
               <h3
-                class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
+                class="mg:text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight text-mg"
               >
                 Do Zero à Otimização
               </h3>
@@ -399,7 +394,7 @@
                 </svg>
               </div>
               <h3
-                class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
+                class="mg:text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight text-mg"
               >
                 Entrega de Valor Contínuo
               </h3>
@@ -430,7 +425,7 @@
                 </svg>
               </div>
               <h3
-                class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
+                class="mg:text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight text-mg"
               >
                 Conexão Estratégica
               </h3>
@@ -461,7 +456,7 @@
                 </svg>
               </div>
               <h3
-                class="text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight"
+                class="mg:text-lg font-semibold text-[#F2F2F2] font-outfit leading-tight text-mg"
               >
                 Experiência em Projetos Globais
               </h3>
@@ -482,32 +477,34 @@
               <div class="flex -space-x-3">
                 <div class="w-6 h-6 rounded-full border border-white/12">
                   <img
-                    src="/src/assets/Ellipse_4.jpg"
+                    src={ellipse4.src}
                     alt="Depoimento 1"
                     class="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 <div class="w-6 h-6 rounded-full border border-white/12">
                   <img
-                    src="/src/assets/Ellipse_2.jpg"
+                    src={ellipse2.src}
                     alt="Depoimento 2"
                     class="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 <div class="w-6 h-6 rounded-full border border-white/12">
                   <img
-                    src="/src/assets/Ellipse_3.jpg"
+                    src={ellipse3.src}
                     alt="Depoimento 3"
                     class="w-full h-full object-cover rounded-full"
                   />
                 </div>
               </div>
               <a
-                class="text-sm font-semibold text-[#F2F2F2] font-outfit leading-tight" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTMzMjkyNDgyODE0MTg4?story_media_id=3309821443917711819&igsh=MTgza3ZqbG9xaTV3ZQ==
-" target="_blank"
+                class="text-sm font-semibold text-[#F2F2F2] font-outfit leading-tight"
+                href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTMzMjkyNDgyODE0MTg4?story_media_id=3309821443917711819&igsh=MTgza3ZqbG9xaTV3ZQ==
+"
+                target="_blank"
               >
                 +20 depoimentos no Instagram
-            </a>
+              </a>
             </div>
             <svg
               class="w-5 h-5 text-[#F2F2F2]"

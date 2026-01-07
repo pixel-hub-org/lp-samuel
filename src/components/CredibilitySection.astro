@@ -1,9 +1,14 @@
 ---
+// 1. Importar o componente Image do Astro
+import { Image } from "astro:assets";
+
 // Importa e ordena as imagens
 const images = (await Astro.glob("../assets/images/samuel-*.*")).sort(
   (a: any, b: any) => {
     const getIndex = (img: any) => {
-      const match = img.default.src.match(/samuel-(\d+)/);
+      // Ajuste para garantir que leia o src corretamente
+      const src = img.default.src || img.default; 
+      const match = src.match(/samuel-(\d+)/);
       return match ? Number(match[1]) : 0;
     };
     return getIndex(a) - getIndex(b);
@@ -51,11 +56,13 @@ const getBadgeText = (index: number) => {
         <div class="carousel-track relative flex items-center justify-center overflow-visible">
           {images.map((image, index) => (
             <div class="carousel-item" data-index={index}>
-              <img 
-                src={image.default.src} 
+              <Image 
+                src={image.default} 
                 alt={`Evento Samuel ${index + 1}`} 
-                loading="lazy" 
-                decoding="async"
+                width={800}
+                densities={[1.5, 2]} 
+                class="object-cover w-full h-full"
+                loading={index === 0 ? "eager" : "lazy"}
               />
               <div class="badge">{getBadgeText(index)}</div>
             </div>
@@ -179,6 +186,7 @@ const getBadgeText = (index: number) => {
       will-change: transform, opacity;
     }
 
+    /* O componente Image do astro gera uma tag img, estilizamos ela aqui */
     .carousel-item img {
       width: 100%;
       height: 100%;
