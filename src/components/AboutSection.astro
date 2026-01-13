@@ -9,7 +9,7 @@ import image7 from "../assets/certificacao06.png";
 import image8 from "../assets/certificacao07.png";
 import image9 from "../assets/certificacao08.png";
 
-const carouselImages = [
+const baseImages = [
   image4,
   image5,
   image6,
@@ -19,6 +19,9 @@ const carouselImages = [
   image10,
   image11,
 ];
+
+// Quadruplica a lista para o loop infinito
+const infiniteImages = [...baseImages, ...baseImages, ...baseImages, ...baseImages];
 ---
 
 <section id="sobre-mim" class="w-full py-12">
@@ -26,16 +29,16 @@ const carouselImages = [
     <div
       class="relative flex flex-col items-center gap-8 lg:gap-12 p-6 lg:px-20 lg:pt-20 lg:pb-10 rounded-2xl border border-white/12 bg-[#0A0A0A] overflow-hidden"
     >
-      <!-- Decorative background -->
       <div class="absolute top-0 left-0 w-full h-auto pointer-events-none">
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/2a819c25dc5d38d3f7ae2734f57b5f02ba3e2c12?width=2000"
           alt="Background decoration"
-          class="w-full h-auto object-cover rounded-t-2xl"
+          class="w-full h-auto object-cover rounded-t-2xl opacity-60"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
-      <!-- Header -->
       <div class="relative z-10 flex flex-col items-center text-center gap-3">
         <h2
           class="text-4xl lg:text-[40px] font-semibold text-white font-outfit leading-tight max-w-[528px]"
@@ -44,22 +47,21 @@ const carouselImages = [
         </h2>
       </div>
 
-      <!-- Content Grid -->
       <div
         class="relative z-10 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 w-full"
       >
-        <!-- Image -->
         <div
-          class="rounded-2xl overflow-hidden w-full max-w-[320px] mx-auto lg:mx-0"
+          class="rounded-2xl overflow-hidden w-full max-w-[320px] mx-auto lg:mx-0 shadow-2xl border border-white/5"
         >
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/246b2f2d4b92ca8e3c4056d749f46f5d681fd919?width=640"
             alt="Samuel Santiago"
-            class="w-full h-auto object-cover"
+            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
-        <!-- Text Content -->
         <div class="flex flex-col justify-center gap-6">
           <p class="text-sm text-white/80 font-medium leading-[150%]">
             Sou Samuel Santiago, Gestor de Projetos e Produtos, mentor e
@@ -79,54 +81,51 @@ const carouselImages = [
             servir pessoas, gerar valor e usar tecnologia com consciência.
           </p>
 
-          <!-- Signature -->
           <div class="w-56 h-9">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/9fa2c06537f34034e2b34bfd8ed6650929293b55?width=448"
               alt="Samuel Santiago - Assinatura"
-              class="w-full h-full object-contain"
+              class="w-full h-full object-contain filter brightness-0 invert opacity-90"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
       </div>
 
-      <!-- Certifications Carousel -->
-      <div class="relative z-10 w-full h-20 overflow-hidden">
-        <!-- Gradient overlays -->
+      <div class="relative z-10 w-full h-32 overflow-hidden mt-8 lg:mt-0">
         <div
-          class="absolute left-0 top-0 w-[110px] h-full bg-linear-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none"
+          class="absolute left-0 top-0 w-[110px] h-full bg-linear-to-r from-[#0A0A0A] to-transparent z-20 pointer-events-none"
         >
         </div>
         <div
-          class="absolute right-0 top-0 w-[110px] h-full bg-linear-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none"
+          class="absolute right-0 top-0 w-[110px] h-full bg-linear-to-l from-[#0A0A0A] to-transparent z-20 pointer-events-none"
         >
         </div>
 
-        <!-- Certifications - Infinite Scroll -->
-        <div class="certifications-track flex items-center gap-8 h-full">
-          <!-- First set -->
+        <div class="certifications-track flex items-center gap-12 h-full">
           {
-            carouselImages.map((img) => (
-              <Image
-                src={img}
-                alt="Imagem do carrossel"
-                height={80}
-                width={140}
-                class="h-full w-auto object-contain shrink-0 cert-img"
-              />
-            ))
-          }
-
-          <!-- Duplicate set for infinite loop -->
-          {
-            carouselImages.map((img) => (
-              <Image
-                src={img}
-                alt="Imagem do carrossel"
-                height={80}
-                width={140}
-                class="h-full w-auto object-contain shrink-0 cert-img"
-              />
+            infiniteImages.map((img, index) => (
+              /* ALTERAÇÕES AQUI:
+                 1. Removi 'grayscale', 'opacity-60' e os hovers relacionados.
+                 2. Mudei 'h-12' para 'h-24' (96px) para ficarem maiores.
+                 3. Adicionei 'hover:scale-110' para um efeito de zoom suave.
+              */
+              <div class="h-24 w-auto shrink-0 flex items-center justify-center transition-transform duration-300 hover:scale-110">
+                 <Image
+                  src={img}
+                  alt={`Certificação ${index}`}
+                  height={96} 
+                  format="webp"
+                  quality="mid"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
+                  draggable="false"
+                  quality={70}
+                  class="h-full w-auto object-contain"
+                />
+              </div>
             ))
           }
         </div>
@@ -162,15 +161,12 @@ const carouselImages = [
   }
 
   .certifications-track {
-    animation: scroll 30s linear infinite;
+    animation: scroll 60s linear infinite;
     width: max-content;
+    will-change: transform;
   }
 
   .certifications-track:hover {
     animation-play-state: paused;
-  }
-
-  .cert-img {
-    mix-blend-mode: multiply;
   }
 </style>
