@@ -3,7 +3,8 @@
 import { Image } from "astro:assets";
 
 // Importa e ordena as imagens
-const images = (await Astro.glob("../assets/images/samuel-*.*")).sort(
+const imageFiles = import.meta.glob("../assets/images/samuel-*.*", { eager: true });
+const images = Object.values(imageFiles).sort(
   (a: any, b: any) => {
     const getIndex = (img: any) => {
       // Ajuste para garantir que leia o src corretamente
@@ -54,7 +55,7 @@ const getBadgeText = (index: number) => {
         </button>
 
         <div class="carousel-track relative flex items-center justify-center overflow-visible">
-          {images.map((image, index) => (
+          {images.map((image: any, index: number) => (
             <div class="carousel-item" data-index={index}>
               <Image 
                 src={image.default} 
